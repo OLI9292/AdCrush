@@ -1,0 +1,6 @@
+framework module Pods_AdCrush {
+  umbrella header "Pods-AdCrush-umbrella.h"
+
+  export *
+  module * { export * }
+}

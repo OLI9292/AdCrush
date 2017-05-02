@@ -1,0 +1,388 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		76C569D1651AF802F5CFA347 /* Pods_AdCrush.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0ABECBB54C671BDCD14D6BC9 /* Pods_AdCrush.framework */; };
+		A78AA2E41EB7CB3E00D00A30 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A78AA2E31EB7CB3E00D00A30 /* AppDelegate.swift */; };
+		A78AA2E61EB7CB3E00D00A30 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A78AA2E51EB7CB3E00D00A30 /* ViewController.swift */; };
+		A78AA2E91EB7CB3E00D00A30 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A78AA2E71EB7CB3E00D00A30 /* Main.storyboard */; };
+		A78AA2EB1EB7CB3E00D00A30 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A78AA2EA1EB7CB3E00D00A30 /* Assets.xcassets */; };
+		A78AA2EE1EB7CB3E00D00A30 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A78AA2EC1EB7CB3E00D00A30 /* LaunchScreen.storyboard */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		0ABECBB54C671BDCD14D6BC9 /* Pods_AdCrush.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AdCrush.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		901D475C6EE6B130B58EE47C /* Pods-AdCrush.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AdCrush.release.xcconfig"; path = "Pods/Target Support Files/Pods-AdCrush/Pods-AdCrush.release.xcconfig"; sourceTree = "<group>"; };
+		A408D82485CDE34C981A679C /* Pods-AdCrush.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AdCrush.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AdCrush/Pods-AdCrush.debug.xcconfig"; sourceTree = "<group>"; };
+		A78AA2E01EB7CB3E00D00A30 /* AdCrush.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AdCrush.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		A78AA2E31EB7CB3E00D00A30 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		A78AA2E51EB7CB3E00D00A30 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		A78AA2E81EB7CB3E00D00A30 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		A78AA2EA1EB7CB3E00D00A30 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		A78AA2ED1EB7CB3E00D00A30 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		A78AA2EF1EB7CB3E00D00A30 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		A78AA2DD1EB7CB3E00D00A30 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				76C569D1651AF802F5CFA347 /* Pods_AdCrush.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		528215132C3BF7B804264CF5 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				0ABECBB54C671BDCD14D6BC9 /* Pods_AdCrush.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		A483FEFCF82D492A8582611A /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				A408D82485CDE34C981A679C /* Pods-AdCrush.debug.xcconfig */,
+				901D475C6EE6B130B58EE47C /* Pods-AdCrush.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		A78AA2D71EB7CB3E00D00A30 = {
+			isa = PBXGroup;
+			children = (
+				A78AA2E21EB7CB3E00D00A30 /* AdCrush */,
+				A78AA2E11EB7CB3E00D00A30 /* Products */,
+				A483FEFCF82D492A8582611A /* Pods */,
+				528215132C3BF7B804264CF5 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		A78AA2E11EB7CB3E00D00A30 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				A78AA2E01EB7CB3E00D00A30 /* AdCrush.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		A78AA2E21EB7CB3E00D00A30 /* AdCrush */ = {
+			isa = PBXGroup;
+			children = (
+				A78AA2E31EB7CB3E00D00A30 /* AppDelegate.swift */,
+				A78AA2E51EB7CB3E00D00A30 /* ViewController.swift */,
+				A78AA2E71EB7CB3E00D00A30 /* Main.storyboard */,
+				A78AA2EA1EB7CB3E00D00A30 /* Assets.xcassets */,
+				A78AA2EC1EB7CB3E00D00A30 /* LaunchScreen.storyboard */,
+				A78AA2EF1EB7CB3E00D00A30 /* Info.plist */,
+			);
+			path = AdCrush;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		A78AA2DF1EB7CB3E00D00A30 /* AdCrush */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A78AA2F21EB7CB3E00D00A30 /* Build configuration list for PBXNativeTarget "AdCrush" */;
+			buildPhases = (
+				F335C22EB4C90D4C70CDFC6B /* [CP] Check Pods Manifest.lock */,
+				A78AA2DC1EB7CB3E00D00A30 /* Sources */,
+				A78AA2DD1EB7CB3E00D00A30 /* Frameworks */,
+				A78AA2DE1EB7CB3E00D00A30 /* Resources */,
+				FEA2624118B9AA0358F17AE6 /* [CP] Embed Pods Frameworks */,
+				56E6181C997B3F3904C7429C /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = AdCrush;
+			productName = AdCrush;
+			productReference = A78AA2E01EB7CB3E00D00A30 /* AdCrush.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		A78AA2D81EB7CB3E00D00A30 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0830;
+				LastUpgradeCheck = 0830;
+				ORGANIZATIONNAME = "Oliver ";
+				TargetAttributes = {
+					A78AA2DF1EB7CB3E00D00A30 = {
+						CreatedOnToolsVersion = 8.3;
+						DevelopmentTeam = VX33YRD3F6;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = A78AA2DB1EB7CB3E00D00A30 /* Build configuration list for PBXProject "AdCrush" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = A78AA2D71EB7CB3E00D00A30;
+			productRefGroup = A78AA2E11EB7CB3E00D00A30 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				A78AA2DF1EB7CB3E00D00A30 /* AdCrush */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		A78AA2DE1EB7CB3E00D00A30 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A78AA2EE1EB7CB3E00D00A30 /* LaunchScreen.storyboard in Resources */,
+				A78AA2EB1EB7CB3E00D00A30 /* Assets.xcassets in Resources */,
+				A78AA2E91EB7CB3E00D00A30 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		56E6181C997B3F3904C7429C /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-AdCrush/Pods-AdCrush-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F335C22EB4C90D4C70CDFC6B /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		FEA2624118B9AA0358F17AE6 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-AdCrush/Pods-AdCrush-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		A78AA2DC1EB7CB3E00D00A30 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A78AA2E61EB7CB3E00D00A30 /* ViewController.swift in Sources */,
+				A78AA2E41EB7CB3E00D00A30 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		A78AA2E71EB7CB3E00D00A30 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A78AA2E81EB7CB3E00D00A30 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		A78AA2EC1EB7CB3E00D00A30 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A78AA2ED1EB7CB3E00D00A30 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		A78AA2F01EB7CB3E00D00A30 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		A78AA2F11EB7CB3E00D00A30 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		A78AA2F31EB7CB3E00D00A30 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = A408D82485CDE34C981A679C /* Pods-AdCrush.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = VX33YRD3F6;
+				INFOPLIST_FILE = AdCrush/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.Oliver.AdCrush;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		A78AA2F41EB7CB3E00D00A30 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 901D475C6EE6B130B58EE47C /* Pods-AdCrush.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = VX33YRD3F6;
+				INFOPLIST_FILE = AdCrush/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.Oliver.AdCrush;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		A78AA2DB1EB7CB3E00D00A30 /* Build configuration list for PBXProject "AdCrush" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A78AA2F01EB7CB3E00D00A30 /* Debug */,
+				A78AA2F11EB7CB3E00D00A30 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A78AA2F21EB7CB3E00D00A30 /* Build configuration list for PBXNativeTarget "AdCrush" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A78AA2F31EB7CB3E00D00A30 /* Debug */,
+				A78AA2F41EB7CB3E00D00A30 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = A78AA2D81EB7CB3E00D00A30 /* Project object */;
+}
