@@ -10,14 +10,15 @@ import SpriteKit
 
 class GameScene: SKScene {
 
-    let advertisement = SKSpriteNode(imageNamed: "mcdonalds-1")
+    let mcdonaldsAd = Advertisement(imageNamed: "mcdonalds")
     
     override func didMove(to view: SKView) {
         self.backgroundColor = SKColor.white
-        advertisement.size = CGSize(width: 200, height: 200)
-        //advertisement.zRotation = CGFloat(Double.pi / 4)
-        advertisement.position = CGPoint(x: size.width / 2 , y: size.height / 2)
-        addChild(advertisement)
+        mcdonaldsAd.name = "mcdonaldsAd"
+        mcdonaldsAd.isUserInteractionEnabled = true
+        mcdonaldsAd.size = CGSize(width: 200, height: 200)
+        mcdonaldsAd.position = CGPoint(x: size.width / 2 , y: size.height / 2)
+        addChild(mcdonaldsAd)
     }
     
     
