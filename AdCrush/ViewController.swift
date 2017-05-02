@@ -16,25 +16,11 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate {
         skView.ignoresSiblingOrder = true
         scene.scaleMode = .resizeFill
         skView.presentScene(scene)
+
         
-        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(crushAd))
-        tapGesture.delegate = self
-             
+        
     }
-    
-    func animateCrush() {
-        print("animated crush")
-    }
-    
-    
-    func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIGestureRecognizer) -> Bool {
-        return true
-    }
-    
-    func crushAd(_:UITapGestureRecognizer) {
-        //replaceVideoWithImage()
-        animateCrush()
-    }
+
     
 }
 
