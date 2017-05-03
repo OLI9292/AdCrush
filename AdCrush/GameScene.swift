@@ -13,7 +13,8 @@ class GameScene: SKScene {
       $0.size = CGSize(width: 200, height: 200)
       $0.isUserInteractionEnabled = true
       addChild($0)
-      $0.crushSound = AudioNode(soundString: "crumple.aif").sound
+      $0.audioNode = AudioNode(soundString: "crumple.aif")
+      $0.addChild($0.audioNode!.sound)
     }
   }
 }
