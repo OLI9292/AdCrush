@@ -13,4 +13,9 @@ struct AudioNode {
     self.sound = SKAudioNode(fileNamed: soundString)
     sound.autoplayLooped = false
   }
+  
+  func play() {
+    sound.run(SKAction.play())
+  }
 }
+
