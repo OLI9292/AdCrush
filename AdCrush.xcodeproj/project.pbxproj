@@ -382,7 +382,7 @@
 				DEVELOPMENT_TEAM = VX33YRD3F6;
 				INFOPLIST_FILE = AdCrush/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.burningflowers3.AdCrush;
+				PRODUCT_BUNDLE_IDENTIFIER = com.Oliver.AdCrush;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
@@ -396,7 +396,7 @@
 				DEVELOPMENT_TEAM = VX33YRD3F6;
 				INFOPLIST_FILE = AdCrush/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.burningflowers3.AdCrush;
+				PRODUCT_BUNDLE_IDENTIFIER = com.Oliver.AdCrush;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};

@@ -15,9 +15,11 @@ class Advertisement: SKSpriteNode {
   
   func crushAdvertisement() {
     audioNode.play()
-    run(Animation.crush.action, completion: {
-      self.removeFromParent()
-    })
+    
+    let crush = Animation.crush.action
+    let remove = SKAction.removeFromParent()
+    let sequence = SKAction.sequence([crush, remove])
+    run(sequence)
   }
   
   required init?(coder aDecoder: NSCoder) {
