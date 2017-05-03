@@ -21,7 +21,7 @@ extension CrushAction {
   
   var crush: SKAction {
     
-    let length: Float = 2
+    let length: Float = 1.5
     let iterations: Float = 10
     let times: [NSNumber] = (0..<Int(iterations)).map({ Float($0) * (length / iterations) }).map { NSNumber(value: $0) }
     
