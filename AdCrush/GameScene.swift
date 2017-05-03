@@ -7,10 +7,9 @@ import Then
 
 class GameScene: SKScene {
     
-    var score = 0 {
+    var score: Int = UserDefaults.standard.integer(forKey: "playerScore") {
         didSet {
-            print("set score")
-            changeScoreCounter()
+            updateScoreCounter()
         }
     }
     
@@ -41,7 +40,9 @@ class GameScene: SKScene {
         }
     }
     
-    func changeScoreCounter() {
+    func updateScoreCounter() {
+        let userdefaults = UserDefaults.standard
+        userdefaults.set(score, forKey: "playerScore")
         scoreCounter.text = "$\(score)0"
     }
 }

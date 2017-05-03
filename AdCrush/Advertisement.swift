@@ -10,7 +10,7 @@ class Advertisement: SKSpriteNode {
     var audioNode: AudioNode!
     
     init(number: Int? = nil) {
-        let texture = SKTexture(imageNamed: "ad\(number ?? 4.asMaxRandom())")
+        let texture = SKTexture(imageNamed: "ad\(number ?? 5.asMaxRandom())")
         super.init(texture: texture, color: UIColor.blue, size: texture.size())
     }
     
@@ -39,10 +39,3 @@ extension Advertisement {
     
     
 }
-
-
-//SKAction *wait = [SKAction waitForDuration:2.5];
-//SKAction *readIntro = [SKAction playSoundFileNamed:@"intro.mp3" waitForCompletion:NO];
-//SKAction *fadeIn = [SKAction fadeInWithDuration:1.0];
-//
-//SKAction *sequence = [SKAction sequence:@[wait, readIntro, fadeIn]];
