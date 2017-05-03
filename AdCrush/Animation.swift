@@ -5,8 +5,6 @@
 import Foundation
 import SpriteKit
 
-typealias Filter = (Float) -> Float
-
 enum Animation {
   case crush
   
@@ -16,12 +14,6 @@ enum Animation {
       return crush
     }
   }
-}
-
-infix operator >>>
-
-func >>>(filter1: @escaping Filter, filter2: @escaping Filter) -> Filter {
-  return { value in filter2(filter1(value)) }
 }
 
 private typealias CrushAction = Animation
