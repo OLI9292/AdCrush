@@ -9,9 +9,11 @@
 /* Begin PBXBuildFile section */
 		76C569D1651AF802F5CFA347 /* Pods_AdCrush.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0ABECBB54C671BDCD14D6BC9 /* Pods_AdCrush.framework */; };
 		A78AA2E41EB7CB3E00D00A30 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A78AA2E31EB7CB3E00D00A30 /* AppDelegate.swift */; };
-		A78AA2E61EB7CB3E00D00A30 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A78AA2E51EB7CB3E00D00A30 /* ViewController.swift */; };
+		A78AA2E61EB7CB3E00D00A30 /* AdCrushVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A78AA2E51EB7CB3E00D00A30 /* AdCrushVC.swift */; };
 		A78AA2E91EB7CB3E00D00A30 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A78AA2E71EB7CB3E00D00A30 /* Main.storyboard */; };
 		A78AA2EB1EB7CB3E00D00A30 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A78AA2EA1EB7CB3E00D00A30 /* Assets.xcassets */; };
+		A7C243261EB95D290005A5DE /* SpriteKit-Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7C243251EB95D290005A5DE /* SpriteKit-Extensions.swift */; };
+		A7C243281EB9698B0005A5DE /* AudioNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7C243271EB9698B0005A5DE /* AudioNode.swift */; };
 		B53403A81EB8ECFF003AA4B3 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = B53403A71EB8ECFF003AA4B3 /* GameScene.swift */; };
 		B53403CF1EB8F434003AA4B3 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B53403CE1EB8F434003AA4B3 /* Extensions.swift */; };
 		B53403D21EB8F6E0003AA4B3 /* Advertisement.swift in Sources */ = {isa = PBXBuildFile; fileRef = B53403D11EB8F6E0003AA4B3 /* Advertisement.swift */; };
@@ -24,10 +26,12 @@
 		A408D82485CDE34C981A679C /* Pods-AdCrush.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AdCrush.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AdCrush/Pods-AdCrush.debug.xcconfig"; sourceTree = "<group>"; };
 		A78AA2E01EB7CB3E00D00A30 /* AdCrush.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AdCrush.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A78AA2E31EB7CB3E00D00A30 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		A78AA2E51EB7CB3E00D00A30 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		A78AA2E51EB7CB3E00D00A30 /* AdCrushVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdCrushVC.swift; sourceTree = "<group>"; };
 		A78AA2E81EB7CB3E00D00A30 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		A78AA2EA1EB7CB3E00D00A30 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A78AA2EF1EB7CB3E00D00A30 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A7C243251EB95D290005A5DE /* SpriteKit-Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "SpriteKit-Extensions.swift"; sourceTree = "<group>"; };
+		A7C243271EB9698B0005A5DE /* AudioNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AudioNode.swift; sourceTree = "<group>"; };
 		B53403A71EB8ECFF003AA4B3 /* GameScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
 		B53403CE1EB8F434003AA4B3 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		B53403D11EB8F6E0003AA4B3 /* Advertisement.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Advertisement.swift; sourceTree = "<group>"; };
@@ -84,15 +88,14 @@
 		A78AA2E21EB7CB3E00D00A30 /* AdCrush */ = {
 			isa = PBXGroup;
 			children = (
-				B53403D01EB8F6D2003AA4B3 /* Nodes */,
-				B53403CD1EB8F42A003AA4B3 /* SpriteKit Extensions */,
-				B53403A61EB8E201003AA4B3 /* ViewControllers */,
 				A78AA2E31EB7CB3E00D00A30 /* AppDelegate.swift */,
+				B53403D01EB8F6D2003AA4B3 /* Nodes */,
+				B53403CD1EB8F42A003AA4B3 /* Extensions */,
+				B53403A61EB8E201003AA4B3 /* ViewControllers */,
 				A78AA2E71EB7CB3E00D00A30 /* Main.storyboard */,
 				A78AA2EA1EB7CB3E00D00A30 /* Assets.xcassets */,
 				B53403D31EB8FBDC003AA4B3 /* crumple.aif */,
 				A78AA2EF1EB7CB3E00D00A30 /* Info.plist */,
-				B53403A71EB8ECFF003AA4B3 /* GameScene.swift */,
 			);
 			path = AdCrush;
 			sourceTree = "<group>";
@@ -100,17 +103,20 @@
 		B53403A61EB8E201003AA4B3 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				A78AA2E51EB7CB3E00D00A30 /* ViewController.swift */,
+				A7C243271EB9698B0005A5DE /* AudioNode.swift */,
+				B53403A71EB8ECFF003AA4B3 /* GameScene.swift */,
+				A78AA2E51EB7CB3E00D00A30 /* AdCrushVC.swift */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
 		};
-		B53403CD1EB8F42A003AA4B3 /* SpriteKit Extensions */ = {
+		B53403CD1EB8F42A003AA4B3 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
 				B53403CE1EB8F434003AA4B3 /* Extensions.swift */,
+				A7C243251EB95D290005A5DE /* SpriteKit-Extensions.swift */,
 			);
-			name = "SpriteKit Extensions";
+			name = Extensions;
 			sourceTree = "<group>";
 		};
 		B53403D01EB8F6D2003AA4B3 /* Nodes */ = {
@@ -156,7 +162,7 @@
 				TargetAttributes = {
 					A78AA2DF1EB7CB3E00D00A30 = {
 						CreatedOnToolsVersion = 8.3;
-						DevelopmentTeam = 4JRBXT6ZFK;
+						DevelopmentTeam = VX33YRD3F6;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -246,10 +252,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				B53403A81EB8ECFF003AA4B3 /* GameScene.swift in Sources */,
-				A78AA2E61EB7CB3E00D00A30 /* ViewController.swift in Sources */,
+				A78AA2E61EB7CB3E00D00A30 /* AdCrushVC.swift in Sources */,
 				B53403D21EB8F6E0003AA4B3 /* Advertisement.swift in Sources */,
 				A78AA2E41EB7CB3E00D00A30 /* AppDelegate.swift in Sources */,
 				B53403CF1EB8F434003AA4B3 /* Extensions.swift in Sources */,
+				A7C243261EB95D290005A5DE /* SpriteKit-Extensions.swift in Sources */,
+				A7C243281EB9698B0005A5DE /* AudioNode.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -367,7 +375,7 @@
 			baseConfigurationReference = A408D82485CDE34C981A679C /* Pods-AdCrush.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = 4JRBXT6ZFK;
+				DEVELOPMENT_TEAM = VX33YRD3F6;
 				INFOPLIST_FILE = AdCrush/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.burningflowers3.AdCrush;
@@ -381,7 +389,7 @@
 			baseConfigurationReference = 901D475C6EE6B130B58EE47C /* Pods-AdCrush.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = 4JRBXT6ZFK;
+				DEVELOPMENT_TEAM = VX33YRD3F6;
 				INFOPLIST_FILE = AdCrush/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.burningflowers3.AdCrush;

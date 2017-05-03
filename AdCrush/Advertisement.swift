@@ -1,53 +1,53 @@
-//
-//  Advertisement.swift
-//  AdCrush
-//
-//  Created by Benjamin Bernstein on 5/2/17.
-//  Copyright © 2017 Oliver . All rights reserved.
-//
+///
+/// Advertisement.swift
+///
 
-import Foundation
 import SpriteKit
 
-
 class Advertisement: SKSpriteNode {
-    
-    let crunchSound = SKAudioNode(fileNamed: "crumple.aif")
-    
-    init(imageNamed: String) {
-        let texture = SKTexture(imageNamed: imageNamed)
-        super.init(texture: texture, color: UIColor.blue, size: texture.size())
-        
-        self.isUserInteractionEnabled = true
-        self.size = CGSize(width: 200, height: 200)
-        
-        crunchSound.autoplayLooped = false
-        self.addChild(crunchSound)
+  
+  var crushSound: SKAudioNode? {
+    didSet {
+      if let sound = crushSound { addChild(sound) }
     }
-    
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-    
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        crunchSound.run(SKAction.play())
-    }
-    
-    override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
-        self.size.height = self.size.height / 1.1
-        if self.size.height < 30 {
-            let finalShrinkAction = SKAction.scaleY(to: 0, duration: 0.4)
-            crunchSound.run(SKAction.play())
-            self.run(finalShrinkAction, completion: {
-                self.crunchSound.removeFromParent()
-                self.removeFromParent()
-            })
-            
-        }
-    }
-    
-    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
-        crunchSound.run(SKAction.stop())
-    }
-    
+  }
+  
+  init(number: Int? = nil) {
+    let texture = SKTexture(imageNamed: "ad\(number ?? 4.asMaxRandom())")
+    super.init(texture: texture, color: UIColor.blue, size: texture.size())
+  }
+  
+  func crushSound(play: Bool) {
+    play ? crushSound?.run(SKAction.play()) : crushSound?.run(SKAction.stop())
+  }
+  
+  func crushAdvertisementCompletely() {
+    let crushAction = SKAction.scaleY(to: 0, duration: 0.4)
+    run(crushAction, completion: {
+      self.crushSound?.removeFromParent()
+      self.removeFromParent()
+    })
+  }
+  
+  required init?(coder aDecoder: NSCoder) {
+    fatalError("init(coder:) has not been implemented")
+  }
+}
+
+// MARK: - Overrides
+extension Advertisement {
+  
+  override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+    crushSound(play: true)
+  }
+  
+  override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
+    crushSound(play: true)
+    size.height = size.height / 1.1
+    if size.height < 30 { crushAdvertisementCompletely() }
+  }
+  
+  override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+    crushSound(play: false)
+  }
 }
