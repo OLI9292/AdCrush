@@ -18,7 +18,8 @@ class Advertisement: SKSpriteNode {
     
     let crush = Animation.crush.action
     let remove = SKAction.removeFromParent()
-    let sequence = SKAction.sequence([crush, remove])
+    let wait = SKAction.wait(forDuration: 0.5)
+    let sequence = SKAction.sequence([crush, wait, remove])
     run(sequence)
   }
   

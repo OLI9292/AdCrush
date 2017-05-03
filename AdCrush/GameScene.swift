@@ -13,7 +13,8 @@ class GameScene: SKScene {
       $0.size = CGSize(width: 300, height: 300)
       $0.isUserInteractionEnabled = true
       addChild($0)
-      $0.audioNode = AudioNode(soundString: "crumple.aif")
+      let randomSoundIndex = Int(arc4random_uniform(3) + 1)
+      $0.audioNode = AudioNode(soundString: "thud\(randomSoundIndex).wav")
       $0.addChild($0.audioNode!.sound)
     }
   }

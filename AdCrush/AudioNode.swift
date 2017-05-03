@@ -11,6 +11,7 @@ struct AudioNode {
   
   init(soundString: String) {
     self.sound = SKAudioNode(fileNamed: soundString)
+    self.sound.run(SKAction.changeVolume(by: 10, duration: 0))
     sound.autoplayLooped = false
   }
   

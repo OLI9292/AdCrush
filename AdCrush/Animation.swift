@@ -33,7 +33,7 @@ extension CrushAction {
   
   var crush: SKAction {
     
-    let length: Float = 0.5
+    let length: Float = 0.2
     let iterations: Float = 30
     let times: [NSNumber] = (0..<Int(iterations)).map({ Float($0) * (length / iterations) }).map { NSNumber(value: $0) }
     
@@ -46,7 +46,7 @@ extension CrushAction {
     ]
     
     func shiftVector(_ vector: float2) -> float2 {
-      return float2(wiggle(value: vector.x), shrinkAndWiggle(value: vector.y, dampen: true))
+      return float2(wiggle(value: vector.x), shrinkAndWiggle(value: vector.y, dampen: false))
     }
     
     let warpgrids: [SKWarpGeometry] = times.reduce([]) { (geometries, _) in
