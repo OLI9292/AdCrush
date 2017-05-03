@@ -9,8 +9,8 @@ struct AudioNode {
   
   let sound: SKAudioNode
   
-  init(sound: SKAudioNode) {
-    self.sound = sound
+  init(soundString: String) {
+    self.sound = SKAudioNode(fileNamed: soundString)
     sound.autoplayLooped = false
   }
 }

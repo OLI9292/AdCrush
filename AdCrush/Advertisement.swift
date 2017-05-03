@@ -6,6 +6,8 @@ import SpriteKit
 
 class Advertisement: SKSpriteNode {
   
+  var crushed = false
+  
   var crushSound: SKAudioNode? {
     didSet {
       if let sound = crushSound { addChild(sound) }
@@ -18,10 +20,12 @@ class Advertisement: SKSpriteNode {
   }
   
   func crushSound(play: Bool) {
+    if crushed { return }
     play ? crushSound?.run(SKAction.play()) : crushSound?.run(SKAction.stop())
   }
   
   func crushAdvertisementCompletely() {
+    crushed = true
     let crushAction = SKAction.scaleY(to: 0, duration: 0.4)
     run(crushAction, completion: {
       self.crushSound?.removeFromParent()
@@ -44,7 +48,7 @@ extension Advertisement {
   override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
     crushSound(play: true)
     size.height = size.height / 1.1
-    if size.height < 30 { crushAdvertisementCompletely() }
+    if size.height < 30 && !crushed { crushAdvertisementCompletely() }
   }
   
   override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
