@@ -10,7 +10,7 @@ class Advertisement: SKSpriteNode {
     var audioNode: AudioNode!
     
     init(number: Int? = nil) {
-        let texture = SKTexture(imageNamed: "ad\(number ?? 5.asMaxRandom())")
+        let texture = SKTexture(imageNamed: "ad\(number ?? 8.asMaxRandom())")
         super.init(texture: texture, color: UIColor.blue, size: texture.size())
     }
     

@@ -16,16 +16,16 @@ class GameScene: SKScene {
     var scoreCounter = SKLabelNode()
     
     func addRandomAdvertisementToScene() {
+        
         _ = Advertisement().then {
             $0.position = CGPoint(x: size.width / 2 , y: size.height / 2)
             $0.size = CGSize(width: 300, height: 300)
             $0.isUserInteractionEnabled = true
-            addChild($0)
             $0.alpha = 0
-            //let randomSoundIndex = Int(arc4random_uniform(3) + 1)
+            insertChild($0, at: 0)
             let fadeIn = SKAction.fadeIn(withDuration: 0.2)
             $0.run(fadeIn)
-            $0.audioNode = AudioNode(soundString: "thud\(1).wav")
+            $0.audioNode = AudioNode(soundString: "stomp.wav")
             $0.addChild($0.audioNode!.sound)
         }
     }
@@ -58,11 +58,15 @@ extension GameScene {
     override func didMove(to view: SKView) {
         addScoreCounter()
         addRandomAdvertisementToScene()
+        addRandomAdvertisementToScene()
+        addRandomAdvertisementToScene()
+
     }
     
     override func update(_ currentTime: TimeInterval) {
-        if children.count == 1 {
+        if children.count == 3 {
             score += 1
-            addRandomAdvertisementToScene() }
+            addRandomAdvertisementToScene()
+        }
     }
 }

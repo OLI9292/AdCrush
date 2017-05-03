@@ -21,7 +21,7 @@ extension AdCrushVC {
   
   func setup() {
     spriteKitView = view as! SKView
-    spriteKitView.ignoresSiblingOrder = true
+    spriteKitView.ignoresSiblingOrder = false
     
     gameScene = GameScene(size: spriteKitView.bounds.size)
     gameScene.scaleMode = .resizeFill
