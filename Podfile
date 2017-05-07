@@ -6,6 +6,7 @@ target 'AdCrush' do
   use_frameworks!
 
   # Pods for AdCrush
-  pod 'youtube-ios-player-helper'
   pod 'Then'
+  pod 'RxSwift'
+  pod 'RxCocoa'
 end

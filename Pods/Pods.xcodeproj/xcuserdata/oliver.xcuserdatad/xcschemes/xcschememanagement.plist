@@ -9,12 +9,17 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>Then.xcscheme</key>
+		<key>RxCocoa.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>youtube-ios-player-helper.xcscheme</key>
+		<key>RxSwift.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Then.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -22,27 +27,22 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>24BDC37C29973C2B81C2A16046AE4694</key>
+		<key>6A85BE3463B4D481DAA0B0ABC543A6A3</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>44AEBC31EAAC0733070A5D19B338A2C4</key>
+		<key>769473AF09938333CA797D970D4FC06D</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>564A0C7823656760407CFCF2BD7A3AAE</key>
+		<key>CE66F060990D9905B8F19A32B28BE674</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>6D921789927D0389F383FB0E7F3808D4</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>9FAE1370283FB0989D1A83548B73F1D8</key>
+		<key>FCE070E235026031CB34E7B75923AD45</key>
 		<dict>
 			<key>primary</key>
 			<true/>

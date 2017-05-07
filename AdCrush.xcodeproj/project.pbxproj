@@ -8,6 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		76C569D1651AF802F5CFA347 /* Pods_AdCrush.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0ABECBB54C671BDCD14D6BC9 /* Pods_AdCrush.framework */; };
+		A7577FE01EBF79FC001BAB44 /* GameController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7577FDF1EBF79FC001BAB44 /* GameController.swift */; };
+		A7577FE31EBF7A97001BAB44 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7577FE21EBF7A97001BAB44 /* User.swift */; };
+		A7577FE61EBF8048001BAB44 /* GameElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7577FE51EBF8048001BAB44 /* GameElement.swift */; };
+		A7577FE81EBF8489001BAB44 /* KarmaCounter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7577FE71EBF8489001BAB44 /* KarmaCounter.swift */; };
+		A7577FEA1EBF882E001BAB44 /* BottomMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7577FE91EBF882E001BAB44 /* BottomMenu.swift */; };
 		A78AA2E41EB7CB3E00D00A30 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A78AA2E31EB7CB3E00D00A30 /* AppDelegate.swift */; };
 		A78AA2E61EB7CB3E00D00A30 /* AdCrushVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A78AA2E51EB7CB3E00D00A30 /* AdCrushVC.swift */; };
 		A78AA2E91EB7CB3E00D00A30 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A78AA2E71EB7CB3E00D00A30 /* Main.storyboard */; };
@@ -25,6 +30,11 @@
 		0ABECBB54C671BDCD14D6BC9 /* Pods_AdCrush.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AdCrush.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		901D475C6EE6B130B58EE47C /* Pods-AdCrush.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AdCrush.release.xcconfig"; path = "Pods/Target Support Files/Pods-AdCrush/Pods-AdCrush.release.xcconfig"; sourceTree = "<group>"; };
 		A408D82485CDE34C981A679C /* Pods-AdCrush.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AdCrush.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AdCrush/Pods-AdCrush.debug.xcconfig"; sourceTree = "<group>"; };
+		A7577FDF1EBF79FC001BAB44 /* GameController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameController.swift; sourceTree = "<group>"; };
+		A7577FE21EBF7A97001BAB44 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		A7577FE51EBF8048001BAB44 /* GameElement.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameElement.swift; sourceTree = "<group>"; };
+		A7577FE71EBF8489001BAB44 /* KarmaCounter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KarmaCounter.swift; sourceTree = "<group>"; };
+		A7577FE91EBF882E001BAB44 /* BottomMenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BottomMenu.swift; sourceTree = "<group>"; };
 		A78AA2E01EB7CB3E00D00A30 /* AdCrush.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AdCrush.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A78AA2E31EB7CB3E00D00A30 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A78AA2E51EB7CB3E00D00A30 /* AdCrushVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdCrushVC.swift; sourceTree = "<group>"; };
@@ -69,6 +79,32 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		A7577FDC1EBF79D9001BAB44 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				A7577FDF1EBF79FC001BAB44 /* GameController.swift */,
+			);
+			name = Controllers;
+			path = ..;
+			sourceTree = "<group>";
+		};
+		A7577FE11EBF7A87001BAB44 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				A7577FE21EBF7A97001BAB44 /* User.swift */,
+			);
+			name = Models;
+			path = ..;
+			sourceTree = "<group>";
+		};
+		A7577FE41EBF7FCF001BAB44 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				A7577FE51EBF8048001BAB44 /* GameElement.swift */,
+			);
+			name = Protocols;
+			sourceTree = "<group>";
+		};
 		A78AA2D71EB7CB3E00D00A30 = {
 			isa = PBXGroup;
 			children = (
@@ -91,24 +127,28 @@
 			isa = PBXGroup;
 			children = (
 				A78AA2E31EB7CB3E00D00A30 /* AppDelegate.swift */,
-				B53403D01EB8F6D2003AA4B3 /* Nodes */,
+				A78AA2EA1EB7CB3E00D00A30 /* Assets.xcassets */,
+				A7577FDC1EBF79D9001BAB44 /* Controllers */,
 				B53403CD1EB8F42A003AA4B3 /* Extensions */,
-				B53403A61EB8E201003AA4B3 /* ViewControllers */,
+				A7577FE11EBF7A87001BAB44 /* Models */,
+				B53403D01EB8F6D2003AA4B3 /* Nodes */,
+				A7577FE41EBF7FCF001BAB44 /* Protocols */,
+				B53403A61EB8E201003AA4B3 /* View */,
 				A78AA2E71EB7CB3E00D00A30 /* Main.storyboard */,
 				B561BB351EBA9204001B63E4 /* stomp.wav */,
-				A78AA2EA1EB7CB3E00D00A30 /* Assets.xcassets */,
 				A78AA2EF1EB7CB3E00D00A30 /* Info.plist */,
 			);
 			path = AdCrush;
 			sourceTree = "<group>";
 		};
-		B53403A61EB8E201003AA4B3 /* ViewControllers */ = {
+		B53403A61EB8E201003AA4B3 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				B53403A71EB8ECFF003AA4B3 /* GameScene.swift */,
 				A78AA2E51EB7CB3E00D00A30 /* AdCrushVC.swift */,
+				B53403A71EB8ECFF003AA4B3 /* GameScene.swift */,
+				A7577FE91EBF882E001BAB44 /* BottomMenu.swift */,
 			);
-			name = ViewControllers;
+			name = View;
 			sourceTree = "<group>";
 		};
 		B53403CD1EB8F42A003AA4B3 /* Extensions */ = {
@@ -126,6 +166,7 @@
 				B53403D11EB8F6E0003AA4B3 /* Advertisement.swift */,
 				A7C243271EB9698B0005A5DE /* AudioNode.swift */,
 				A78C554D1EB99BBC006D08AC /* Animation.swift */,
+				A7577FE71EBF8489001BAB44 /* KarmaCounter.swift */,
 			);
 			name = Nodes;
 			sourceTree = "<group>";
@@ -165,7 +206,7 @@
 				TargetAttributes = {
 					A78AA2DF1EB7CB3E00D00A30 = {
 						CreatedOnToolsVersion = 8.3;
-						DevelopmentTeam = VX33YRD3F6;
+						DevelopmentTeam = SRFS2YY3XR;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -255,13 +296,18 @@
 			buildActionMask = 2147483647;
 			files = (
 				B53403A81EB8ECFF003AA4B3 /* GameScene.swift in Sources */,
+				A7577FE81EBF8489001BAB44 /* KarmaCounter.swift in Sources */,
 				A78AA2E61EB7CB3E00D00A30 /* AdCrushVC.swift in Sources */,
 				A78C554E1EB99BBC006D08AC /* Animation.swift in Sources */,
 				B53403D21EB8F6E0003AA4B3 /* Advertisement.swift in Sources */,
 				A78AA2E41EB7CB3E00D00A30 /* AppDelegate.swift in Sources */,
 				B53403CF1EB8F434003AA4B3 /* Extensions.swift in Sources */,
 				A7C243261EB95D290005A5DE /* SpriteKit-Extensions.swift in Sources */,
+				A7577FEA1EBF882E001BAB44 /* BottomMenu.swift in Sources */,
+				A7577FE01EBF79FC001BAB44 /* GameController.swift in Sources */,
+				A7577FE31EBF7A97001BAB44 /* User.swift in Sources */,
 				A7C243281EB9698B0005A5DE /* AudioNode.swift in Sources */,
+				A7577FE61EBF8048001BAB44 /* GameElement.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -379,10 +425,10 @@
 			baseConfigurationReference = A408D82485CDE34C981A679C /* Pods-AdCrush.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = VX33YRD3F6;
+				DEVELOPMENT_TEAM = SRFS2YY3XR;
 				INFOPLIST_FILE = AdCrush/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.Oliver.AdCrush;
+				PRODUCT_BUNDLE_IDENTIFIER = com.burningflowe.rs.AdCrush;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
@@ -393,10 +439,10 @@
 			baseConfigurationReference = 901D475C6EE6B130B58EE47C /* Pods-AdCrush.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = VX33YRD3F6;
+				DEVELOPMENT_TEAM = SRFS2YY3XR;
 				INFOPLIST_FILE = AdCrush/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.Oliver.AdCrush;
+				PRODUCT_BUNDLE_IDENTIFIER = com.burningflowe.rs.AdCrush;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
