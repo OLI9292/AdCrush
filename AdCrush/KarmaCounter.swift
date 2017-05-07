@@ -24,7 +24,6 @@ extension KarmaCounter {
   
   func layout() {
     position = CGPoint(x: skScene.size.width / 2 , y: skScene.size.height / 1.2 )
-    fontSize = 50
     fontColor = SKColor.black
     skScene.addChild(self)
   }

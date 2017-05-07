@@ -11,7 +11,3 @@ protocol GameElement {
   
   mutating func layout()
 }
-
-protocol ViewElement {
-  mutating func layout()
-}

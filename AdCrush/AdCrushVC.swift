@@ -43,7 +43,6 @@ extension AdCrushVC {
   func addBottomMenu(frame: CGRect) {
     let bottomMenu = BottomMenu(frame: frame)
     view.addSubview(bottomMenu)
-    bottomMenu.layout()
   }
   
   func frame(for subviewType: SubviewType) -> CGRect {
@@ -51,9 +50,9 @@ extension AdCrushVC {
     case .bottomMenu:
       return CGRect(
         x: view.frame.origin.x,
-        y: view.frame.size.height - 100,
+        y: view.frame.size.height - 80,
         width: view.frame.size.width,
-        height: 100)
+        height: 80)
     }
   }
 }

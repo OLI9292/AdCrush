@@ -17,7 +17,7 @@ class GameScene: SKScene {
   }
   
   func setup() {
-    backgroundColor = .white
+    backgroundColor = Palette.backgroundMain.color
     
     addKarmaCounter()
     addRandomAdvertisement()
