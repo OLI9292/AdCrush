@@ -5,6 +5,8 @@
 import Foundation
 import RealmSwift
 
+typealias ItemAttributes = (price: Float, value: Float)
+
 class ForSaleItem: Object {
   
   dynamic var itemTypeString: String = ""
@@ -15,9 +17,9 @@ class ForSaleItem: Object {
     return MenuItemType(rawValue: itemTypeString)!
   }
   
-  var nextLevel: (cost: Int?, value: Int?) {
-    let level = levels.sorted().first { !$0.purchased }
-    return (level?.cost, level?.value)
+  var nextLevel: ItemAttributes? {
+    guard let level = levels.sorted().first(where: { !$0.purchased }) else { return nil }
+    return (level.price, level.value)
   }
   
   convenience init(itemType: MenuItemType, name: String) {

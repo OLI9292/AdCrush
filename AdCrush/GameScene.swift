@@ -4,6 +4,8 @@
 
 import RxCocoa
 import RxSwift
+import RxRealm
+import RealmSwift
 import SpriteKit
 import Then
 
@@ -11,7 +13,7 @@ class GameScene: SKScene {
   
   let bag = DisposeBag()
   private var karmaCounter: KarmaCounter!
-  
+
   private var noAds: Bool {
     return children.filter({ $0 is Advertisement }).count == 0
   }
@@ -53,10 +55,9 @@ class GameScene: SKScene {
   // MARK: - Observe
   
   private func observeUser() {
-    GameController.shared.currentUser()
-      .observeOn(MainScheduler.instance)
-      .subscribe(onNext: { data in
-        self.karmaCounter.score = "\(data.karma)"
+    Observable.from(object: RealmController.user, properties: ["karma"])
+      .subscribe(onNext: { user in
+        self.karmaCounter.text = "\(user.karma)"
       })
       .addDisposableTo(bag)
   }

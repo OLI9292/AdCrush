@@ -7,13 +7,13 @@ import RealmSwift
 
 class ItemLevel: Object, Comparable {
   
-  dynamic var cost: Int = 0
+  dynamic var price: Float = 0
   dynamic var purchased: Bool = false
-  dynamic var value: Int = 0
+  dynamic var value: Float = 0
   
-  convenience init(cost: Int, value: Int, purchased: Bool = false) {
+  convenience init(price: Float, value: Float, purchased: Bool = false) {
     self.init()
-    self.cost = cost
+    self.price = price
     self.value = value
     self.purchased = purchased
   }
