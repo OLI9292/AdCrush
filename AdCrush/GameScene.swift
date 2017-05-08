@@ -10,27 +10,24 @@ import Then
 class GameScene: SKScene {
   
   let bag = DisposeBag()
-  var karmaCounter: KarmaCounter!
+  private var karmaCounter: KarmaCounter!
   
-  var noAds: Bool {
+  private var noAds: Bool {
     return children.filter({ $0 is Advertisement }).count == 0
   }
   
-  func setup() {
+  private func setup() {
     backgroundColor = Palette.backgroundMain.color
     
     addKarmaCounter()
     addRandomAdvertisement()
   }
   
-  func observe() {
+  private func observe() {
     observeUser()
   }
-}
 
-
-// Mark: - Overrides
-extension GameScene {
+  // Mark: - Overrides
   
   override func didMove(to view: SKView) {
     setup()
@@ -40,28 +37,22 @@ extension GameScene {
   override func update(_ currentTime: TimeInterval) {
     if noAds { addRandomAdvertisement() }
   }
-}
 
-
-// MARK: - Setup
-extension GameScene {
+  // MARK: - Setup
   
-  func addRandomAdvertisement() {
+  private func addRandomAdvertisement() {
     let advertisement = Advertisement(skScene: self)
     advertisement.layout()
   }
   
-  func addKarmaCounter() {
+  private func addKarmaCounter() {
     karmaCounter = KarmaCounter(skScene: self)
     karmaCounter.layout()
   }
-}
 
-
-// MARK: - Observe
-extension GameScene {
+  // MARK: - Observe
   
-  func observeUser() {
+  private func observeUser() {
     GameController.shared.currentUser()
       .observeOn(MainScheduler.instance)
       .subscribe(onNext: { data in

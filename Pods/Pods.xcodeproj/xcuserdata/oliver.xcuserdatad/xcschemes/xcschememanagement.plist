@@ -14,6 +14,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>RxGesture.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>RxSwift.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -27,22 +32,27 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>6A85BE3463B4D481DAA0B0ABC543A6A3</key>
+		<key>3EFEE84D5650846D58D56A4A4E0E918E</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>769473AF09938333CA797D970D4FC06D</key>
+		<key>6C098623DF5E97679036433C0304557B</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>CE66F060990D9905B8F19A32B28BE674</key>
+		<key>7A204383211BC3F599BD8B192D117FD4</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>FCE070E235026031CB34E7B75923AD45</key>
+		<key>85D4D2D67FE58D536FDF392F07F253C9</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>AC48495D8015932A25577421BFFA1517</key>
 		<dict>
 			<key>primary</key>
 			<true/>

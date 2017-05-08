@@ -5,9 +5,11 @@
 import Foundation
 import RxSwift
 
+
 final class GameController {
   
   static let shared = GameController()
+  var openMenu: Variable<MenuItemType?> = Variable(nil)
   
   private init() {}
   

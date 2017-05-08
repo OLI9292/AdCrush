@@ -3,15 +3,19 @@
 ///
 
 import UIKit
+import RxSwift
 import SpriteKit
 
 class AdCrushVC: UIViewController {
   
   var gameScene: GameScene!
+  var bottomMenu: BottomMenu!
   var spriteKitView: SKView!
   
+  let bag = DisposeBag()
+  
   enum SubviewType {
-    case bottomMenu
+    case bottomMenu, buyMenu
   }
   
   override func viewDidLoad() {
@@ -20,17 +24,14 @@ class AdCrushVC: UIViewController {
     setup()
   }
   
-  func setup() {
+  private func setup() {
     addGameScene()
-    addBottomMenu(frame: frame(for: SubviewType.bottomMenu))
+    addBottomMenu()
   }
-}
 
+  // MARK: - Setup
 
-// MARK: - Setup
-extension AdCrushVC {
-
-  func addGameScene() {
+  fileprivate func addGameScene() {
     spriteKitView = view as! SKView
     spriteKitView.ignoresSiblingOrder = false
     
@@ -40,12 +41,34 @@ extension AdCrushVC {
     spriteKitView.presentScene(gameScene)
   }
   
-  func addBottomMenu(frame: CGRect) {
-    let bottomMenu = BottomMenu(frame: frame)
+  fileprivate func addBottomMenu() {
+    let frame = subviewFrame(SubviewType.bottomMenu)
+    bottomMenu = BottomMenu(frame: frame)
+    bottomMenu.backgroundColor = .white
     view.addSubview(bottomMenu)
+    GameController.shared.openMenu.asObservable()
+      .subscribe(onNext: { menuItemType in
+        if let menuItemType = menuItemType {
+          self.open(menuItemType)
+        }
+      })
+      .addDisposableTo(bag)
   }
   
-  func frame(for subviewType: SubviewType) -> CGRect {
+  // MARK: - Animations
+  
+  private func open(_ menuItemType: MenuItemType) {
+    let frame = subviewFrame(SubviewType.buyMenu)
+    let buyMenu = BuyMenu(menuItemType, frame: frame)
+    view.insertSubview(buyMenu, belowSubview: bottomMenu)
+    UIView.animate(withDuration: 1, animations: {
+      buyMenu.frame.origin.y -= 300
+    }, completion: nil)
+  }
+  
+  // MARK: - SubView Frames
+  
+  private func subviewFrame(_ subviewType: SubviewType) -> CGRect {
     switch subviewType {
     case .bottomMenu:
       return CGRect(
@@ -53,6 +76,12 @@ extension AdCrushVC {
         y: view.frame.size.height - 80,
         width: view.frame.size.width,
         height: 80)
+    case .buyMenu:
+      return CGRect(
+        x: view.frame.origin.x,
+        y: view.frame.size.height - 80,
+        width: view.frame.size.width,
+        height: 300)
     }
   }
 }

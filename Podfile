@@ -9,4 +9,5 @@ target 'AdCrush' do
   pod 'Then'
   pod 'RxSwift'
   pod 'RxCocoa'
+  pod 'RxGesture'
 end
