@@ -56,7 +56,7 @@ class GameScene: SKScene {
     GameController.shared.currentUser()
       .observeOn(MainScheduler.instance)
       .subscribe(onNext: { data in
-        self.karmaCounter.text = "\(data.karma)"
+        self.karmaCounter.score = "\(data.karma)"
       })
       .addDisposableTo(bag)
   }

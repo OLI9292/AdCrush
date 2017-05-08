@@ -17,13 +17,13 @@ final class GameController {
   
   private init() {}
   
-  func currentUser() -> Observable<User> {
+    func currentUser() -> Observable<User> {
     // Placeholder
     return Observable.just(
-      User(karma: 10, valuePerKrush: 10, multiplierPerKrush: 1, karmaPerSecond: 0)
+      User(karma: 100, valuePerKrush: 10, multiplierPerKrush: 1, karmaPerSecond: 0)
     )
   }
-  
+
   func forSaleItems(for menuType: MenuItemType) -> [ForSaleItem] {
     return saleItems.filter { $0.itemType == menuType }
   }

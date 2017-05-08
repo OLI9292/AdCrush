@@ -5,9 +5,12 @@
 import Foundation
 
 struct User {
-  let karma: Int
-  
-  let valuePerKrush: Int
-  let multiplierPerKrush: Int
-  let karmaPerSecond: Int
+    let karma: Int
+    
+    let valuePerKrush: Int
+    let multiplierPerKrush: Int
+    let karmaPerSecond: Int
+
 }
+
+

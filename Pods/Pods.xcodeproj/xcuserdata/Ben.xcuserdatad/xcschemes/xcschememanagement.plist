@@ -8,16 +8,65 @@
 		<dict>
 			<key>isShown</key>
 			<false/>
+			<key>orderHint</key>
+			<integer>1</integer>
+		</dict>
+		<key>Realm.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>7</integer>
+		</dict>
+		<key>RealmSwift.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>8</integer>
+		</dict>
+		<key>RxCocoa.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>2</integer>
+		</dict>
+		<key>RxGesture.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>3</integer>
+		</dict>
+		<key>RxSwift.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>4</integer>
+		</dict>
+		<key>Then.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>5</integer>
 		</dict>
 		<key>youtube-ios-player-helper.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
+			<key>orderHint</key>
+			<integer>6</integer>
 		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
 		<key>24BDC37C29973C2B81C2A16046AE4694</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>37BB96C32F18E985F394B043D8A65BCB</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>37BCE1A3B5CE3C60D1CE2D994D2A6EFA</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>44A11B09BEB39230B5F0707203F8D634</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -32,7 +81,27 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>5F3238CEE2E048DF19A18F05D43D01EE</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>65588F6A66B0510B3B4888903750F672</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>6D921789927D0389F383FB0E7F3808D4</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>756A3C46D641D5594481C43EFEF18E60</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>77939E3601935D07214776C6CEE07B1E</key>
 		<dict>
 			<key>primary</key>
 			<true/>
