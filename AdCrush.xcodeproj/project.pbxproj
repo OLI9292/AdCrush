@@ -12,6 +12,7 @@
 		A70063391EC0096800678380 /* Baloo-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A70063371EC007DC00678380 /* Baloo-Regular.ttf */; };
 		A700633B1EC01C2500678380 /* ForSaleItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = A700633A1EC01C2500678380 /* ForSaleItem.swift */; };
 		A700633D1EC01F3000678380 /* ForSaleItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A700633C1EC01F3000678380 /* ForSaleItemCell.swift */; };
+		A700633F1EC0C54700678380 /* ItemLevel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A700633E1EC0C54700678380 /* ItemLevel.swift */; };
 		A7577FE61EBF8048001BAB44 /* GameElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7577FE51EBF8048001BAB44 /* GameElement.swift */; };
 		A7577FE81EBF8489001BAB44 /* KarmaCounter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7577FE71EBF8489001BAB44 /* KarmaCounter.swift */; };
 		A7577FEA1EBF882E001BAB44 /* BottomMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7577FE91EBF882E001BAB44 /* BottomMenu.swift */; };
@@ -39,6 +40,7 @@
 		A70063371EC007DC00678380 /* Baloo-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Baloo-Regular.ttf"; path = "Assets.xcassets/Baloo-Regular.dataset/Baloo-Regular.ttf"; sourceTree = "<group>"; };
 		A700633A1EC01C2500678380 /* ForSaleItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ForSaleItem.swift; sourceTree = "<group>"; };
 		A700633C1EC01F3000678380 /* ForSaleItemCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ForSaleItemCell.swift; sourceTree = "<group>"; };
+		A700633E1EC0C54700678380 /* ItemLevel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemLevel.swift; sourceTree = "<group>"; };
 		A7577FE51EBF8048001BAB44 /* GameElement.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameElement.swift; sourceTree = "<group>"; };
 		A7577FE71EBF8489001BAB44 /* KarmaCounter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KarmaCounter.swift; sourceTree = "<group>"; };
 		A7577FE91EBF882E001BAB44 /* BottomMenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BottomMenu.swift; sourceTree = "<group>"; };
@@ -105,6 +107,7 @@
 				A776BDAB1EBF98D80025ED65 /* User.swift */,
 				A70063351EC003D300678380 /* MenuItemType.swift */,
 				A700633A1EC01C2500678380 /* ForSaleItem.swift */,
+				A700633E1EC0C54700678380 /* ItemLevel.swift */,
 			);
 			name = Models;
 			path = ..;
@@ -321,6 +324,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A700633F1EC0C54700678380 /* ItemLevel.swift in Sources */,
 				B53403A81EB8ECFF003AA4B3 /* GameScene.swift in Sources */,
 				A7577FE81EBF8489001BAB44 /* KarmaCounter.swift in Sources */,
 				A78AA2E61EB7CB3E00D00A30 /* AdCrushVC.swift in Sources */,

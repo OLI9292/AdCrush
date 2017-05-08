@@ -33,7 +33,7 @@ class BottomMenu: UIView {
         $0.image = item.image
         $0.tag = index
         addSubview($0)
-        // Tap Gesture Recognizer
+        // Tap Gesture Observer
         observeForTap($0)
         // Constraints
         $0.freeConstraints()

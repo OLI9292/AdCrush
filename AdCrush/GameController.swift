@@ -34,22 +34,36 @@ final class GameController {
 extension GameController {
   
   func loadForSaleItems() -> [ForSaleItem] {
-    var items: [ForSaleItem] = []
     
-    items.append(ForSaleItem(itemType: .industry, name: "Food", value: 200, cost: 0))
-    items.append(ForSaleItem(itemType: .industry, name: "Cars", value: 1000, cost: 0))
-    items.append(ForSaleItem(itemType: .industry, name: "Drugs", value: 5000, cost: 0))
-    items.append(ForSaleItem(itemType: .industry, name: "Cigarettes", value: 50000, cost: 0))
+    var items = [ForSaleItem]()
     
-    items.append(ForSaleItem(itemType: .medium, name: "Phone", value: 1000, cost: 0))
-    items.append(ForSaleItem(itemType: .medium, name: "TV", value: 10000, cost: 0))
-    items.append(ForSaleItem(itemType: .medium, name: "Subway", value: 20000, cost: 0))
-    items.append(ForSaleItem(itemType: .medium, name: "Highway", value: 500000, cost: 0))
+    var forSaleItem = ForSaleItem(itemType: .industry, name: "Food")
+    var item = ItemLevel(cost: 50, value: 200)
+    var item2 = ItemLevel(cost: 100, value: 300)
+    var item3 = ItemLevel(cost: 150, value: 400)
+    [item, item2, item3].forEach { forSaleItem.levels.append($0) }
+    items.append(forSaleItem)
     
-    items.append(ForSaleItem(itemType: .investment, name: "Save the Whales", value: 1000, cost: 0))
-    items.append(ForSaleItem(itemType: .investment, name: "Cancer Research", value: 10000, cost: 0))
-    items.append(ForSaleItem(itemType: .investment, name: "Internet Freedom", value: 20000, cost: 0))
-    items.append(ForSaleItem(itemType: .investment, name: "Universal Basic Income", value: 500000, cost: 0))
+    forSaleItem = ForSaleItem(itemType: .industry, name: "Cars")
+    item = ItemLevel(cost: 1000, value: 500)
+    item2 = ItemLevel(cost: 1500, value: 750)
+    item3 = ItemLevel(cost: 2000, value: 1000)
+    [item, item2, item3].forEach { forSaleItem.levels.append($0) }
+    items.append(forSaleItem)
+    
+    forSaleItem = ForSaleItem(itemType: .industry, name: "Drugs")
+    item = ItemLevel(cost: 5000, value: 1000)
+    item2 = ItemLevel(cost: 10000, value: 1250)
+    item3 = ItemLevel(cost: 25000, value: 1500)
+    [item, item2, item3].forEach { forSaleItem.levels.append($0) }
+    items.append(forSaleItem)
+    
+    forSaleItem = ForSaleItem(itemType: .industry, name: "Cigarettes")
+    item = ItemLevel(cost: 50000, value: 5000)
+    item2 = ItemLevel(cost: 100000, value: 10000)
+    item3 = ItemLevel(cost: 150000, value: 15000)
+    [item, item2, item3].forEach { forSaleItem.levels.append($0) }
+    items.append(forSaleItem)
     
     return items
   }

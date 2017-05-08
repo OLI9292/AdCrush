@@ -2,9 +2,13 @@
 /// ForSaleItemCell.swift
 ///
 
+import RxGesture
+import RxSwift
 import UIKit
 
 class ForSaleItemCell: UITableViewCell {
+  
+  let bag = DisposeBag()
   
   let itemImageView = UIImageView()
   let nameLabel = UILabel()
@@ -14,9 +18,9 @@ class ForSaleItemCell: UITableViewCell {
   var item: ForSaleItem! {
     didSet {
       nameLabel.text = item.name
-      valueLabel.text = String(item.value)
-      costLabel.text = String(item.cost)
       itemImageView.image = UIImage(named: item.name.lowercased())
+      valueLabel.text = String(describing: item.nextLevel.cost ?? 0)
+      costLabel.text = String(describing: item.nextLevel.value ?? 0)
     }
   }
   
@@ -29,6 +33,12 @@ class ForSaleItemCell: UITableViewCell {
   override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
     super.init(style: style, reuseIdentifier: reuseIdentifier)
     
+    layout()
+  }
+  
+  // MARK: - Layout
+  
+  func layout() {
     backgroundColor = Palette.transparent.color
     
     views.forEach { contentView.addSubview($0) }
@@ -58,10 +68,25 @@ class ForSaleItemCell: UITableViewCell {
     
     _ = costLabel.then {
       $0.font = UIFont(name: "Baloo-Regular", size: 24)
+      // Tap Gesture Observer
+      observeForTap($0)
       // Anchors
       $0.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
       $0.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -width(percentageOf: 0.1)).isActive = true
     }
+  }
+  
+  // MARK: - User Interaction
+  
+  private func observeForTap(_ view: UILabel) {
+    view.rx
+      .anyGesture(.tap())
+      .when(.recognized)
+      .subscribe(onNext: { _ in
+        // TODO:
+        // Purchase item, enhance game state
+      })
+      .addDisposableTo(bag)
   }
   
   required init?(coder aDecoder: NSCoder) {
