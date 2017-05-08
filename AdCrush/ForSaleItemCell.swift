@@ -13,19 +13,19 @@ class ForSaleItemCell: UITableViewCell {
   let itemImageView = UIImageView()
   let nameLabel = UILabel()
   let valueLabel = UILabel()
-  let costLabel = UILabel()
+  let priceLabel = UILabel()
 
   var item: ForSaleItem! {
     didSet {
       nameLabel.text = item.name
       itemImageView.image = UIImage(named: item.name.lowercased())
-      valueLabel.text = String(describing: item.nextLevel.cost ?? 0)
-      costLabel.text = String(describing: item.nextLevel.value ?? 0)
+      valueLabel.text = String(describing: item.nextLevel?.price ?? 0)
+      priceLabel.text = String(describing: item.nextLevel?.value)
     }
   }
   
   var views: [UIView] {
-    return [itemImageView, nameLabel, valueLabel, costLabel]
+    return [itemImageView, nameLabel, valueLabel, priceLabel]
   }
   
   static var reuseID = "forSaleItem"
@@ -66,7 +66,7 @@ class ForSaleItemCell: UITableViewCell {
       $0.topAnchor.constraint(equalTo: nameLabel.bottomAnchor).isActive = true
     }
     
-    _ = costLabel.then {
+    _ = priceLabel.then {
       $0.font = UIFont(name: "Baloo-Regular", size: 24)
       // Tap Gesture Observer
       observeForTap($0)
@@ -83,8 +83,7 @@ class ForSaleItemCell: UITableViewCell {
       .anyGesture(.tap())
       .when(.recognized)
       .subscribe(onNext: { _ in
-        // TODO:
-        // Purchase item, enhance game state
+        GameController.shared.buy(self.item)
       })
       .addDisposableTo(bag)
   }

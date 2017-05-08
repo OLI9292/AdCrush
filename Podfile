@@ -11,4 +11,5 @@ target 'AdCrush' do
   pod 'RxCocoa'
   pod 'RxGesture'
   pod 'RealmSwift'
+  pod 'RxRealm'
 end

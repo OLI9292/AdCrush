@@ -13,6 +13,7 @@
 		A700633B1EC01C2500678380 /* ForSaleItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = A700633A1EC01C2500678380 /* ForSaleItem.swift */; };
 		A700633D1EC01F3000678380 /* ForSaleItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A700633C1EC01F3000678380 /* ForSaleItemCell.swift */; };
 		A700633F1EC0C54700678380 /* ItemLevel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A700633E1EC0C54700678380 /* ItemLevel.swift */; };
+		A70063411EC0D5E400678380 /* RealmController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A70063401EC0D5E400678380 /* RealmController.swift */; };
 		A7577FE61EBF8048001BAB44 /* GameElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7577FE51EBF8048001BAB44 /* GameElement.swift */; };
 		A7577FE81EBF8489001BAB44 /* KarmaCounter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7577FE71EBF8489001BAB44 /* KarmaCounter.swift */; };
 		A7577FEA1EBF882E001BAB44 /* BottomMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7577FE91EBF882E001BAB44 /* BottomMenu.swift */; };
@@ -41,6 +42,7 @@
 		A700633A1EC01C2500678380 /* ForSaleItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ForSaleItem.swift; sourceTree = "<group>"; };
 		A700633C1EC01F3000678380 /* ForSaleItemCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ForSaleItemCell.swift; sourceTree = "<group>"; };
 		A700633E1EC0C54700678380 /* ItemLevel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemLevel.swift; sourceTree = "<group>"; };
+		A70063401EC0D5E400678380 /* RealmController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealmController.swift; sourceTree = "<group>"; };
 		A7577FE51EBF8048001BAB44 /* GameElement.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameElement.swift; sourceTree = "<group>"; };
 		A7577FE71EBF8489001BAB44 /* KarmaCounter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KarmaCounter.swift; sourceTree = "<group>"; };
 		A7577FE91EBF882E001BAB44 /* BottomMenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BottomMenu.swift; sourceTree = "<group>"; };
@@ -96,6 +98,7 @@
 			isa = PBXGroup;
 			children = (
 				A776BDA91EBF98CB0025ED65 /* GameController.swift */,
+				A70063401EC0D5E400678380 /* RealmController.swift */,
 			);
 			name = Controllers;
 			path = ..;
@@ -337,6 +340,7 @@
 				A700633D1EC01F3000678380 /* ForSaleItemCell.swift in Sources */,
 				B53403CF1EB8F434003AA4B3 /* Extensions.swift in Sources */,
 				A776BDB11EBFA85F0025ED65 /* BuyMenu.swift in Sources */,
+				A70063411EC0D5E400678380 /* RealmController.swift in Sources */,
 				A7C243261EB95D290005A5DE /* SpriteKit-Extensions.swift in Sources */,
 				A7577FEA1EBF882E001BAB44 /* BottomMenu.swift in Sources */,
 				A7C243281EB9698B0005A5DE /* AudioNode.swift in Sources */,
