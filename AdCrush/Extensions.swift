@@ -21,4 +21,23 @@ extension UIView {
   func freeConstraints() {
     translatesAutoresizingMaskIntoConstraints = false
   }
+  
+  func height(percentageOf: CGFloat) -> CGFloat {
+    return percentageOf * frame.size.height
+  }
+  
+  func width(percentageOf: CGFloat) -> CGFloat {
+    return percentageOf * frame.size.width
+  }
+}
+
+extension UIViewController {
+  
+  func height(percentageOf: CGFloat) -> CGFloat {
+    return percentageOf * view.frame.size.height
+  }
+  
+  func width(percentageOf: CGFloat) -> CGFloat {
+    return percentageOf * view.frame.size.width
+  }
 }

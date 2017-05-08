@@ -22,13 +22,18 @@ class AdCrushVC: UIViewController {
     super.viewDidLoad()
     
     setup()
+    observe()
   }
   
   private func setup() {
     addGameScene()
     addBottomMenu()
   }
-
+  
+  private func observe() {
+    observeMenu()
+  }
+  
   // MARK: - Setup
 
   fileprivate func addGameScene() {
@@ -46,10 +51,17 @@ class AdCrushVC: UIViewController {
     bottomMenu = BottomMenu(frame: frame)
     bottomMenu.backgroundColor = .white
     view.addSubview(bottomMenu)
+  }
+  
+  // MARK: - Observe
+  
+  private func observeMenu() {
     GameController.shared.openMenu.asObservable()
       .subscribe(onNext: { menuItemType in
         if let menuItemType = menuItemType {
           self.open(menuItemType)
+        } else {
+          self.closeMenu()
         }
       })
       .addDisposableTo(bag)
@@ -58,12 +70,17 @@ class AdCrushVC: UIViewController {
   // MARK: - Animations
   
   private func open(_ menuItemType: MenuItemType) {
+    closeMenu()
     let frame = subviewFrame(SubviewType.buyMenu)
     let buyMenu = BuyMenu(menuItemType, frame: frame)
     view.insertSubview(buyMenu, belowSubview: bottomMenu)
     UIView.animate(withDuration: 1, animations: {
-      buyMenu.frame.origin.y -= 300
+      buyMenu.frame.origin.y -= self.height(percentageOf: 0.7)
     }, completion: nil)
+  }
+  
+  private func closeMenu() {
+    view.subviews.filter({ $0 is BuyMenu }).first?.removeFromSuperview()
   }
   
   // MARK: - SubView Frames
@@ -73,15 +90,15 @@ class AdCrushVC: UIViewController {
     case .bottomMenu:
       return CGRect(
         x: view.frame.origin.x,
-        y: view.frame.size.height - 80,
+        y: view.frame.size.height - height(percentageOf: 0.1),
         width: view.frame.size.width,
-        height: 80)
+        height: height(percentageOf: 0.1))
     case .buyMenu:
       return CGRect(
         x: view.frame.origin.x,
-        y: view.frame.size.height - 80,
+        y: view.frame.size.height - height(percentageOf: 0.1),
         width: view.frame.size.width,
-        height: 300)
+        height: height(percentageOf: 0.7))
     }
   }
 }

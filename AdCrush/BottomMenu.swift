@@ -8,18 +8,6 @@ import RxGesture
 import RxSwift
 import UIKit
 
-enum MenuItemType {
-  case investment, industry, medium
-  
-  static var menuItems: [(type: MenuItemType, image: UIImage)] {
-    return [
-      (.industry, #imageLiteral(resourceName: "industry")),
-      (.medium, #imageLiteral(resourceName: "medium")),
-      (.investment, #imageLiteral(resourceName: "investment"))
-    ]
-  }
-}
-
 class BottomMenu: UIView {
   
   let bag = DisposeBag()
@@ -29,8 +17,9 @@ class BottomMenu: UIView {
       .anyGesture(.tap())
       .when(.recognized)
       .subscribe(onNext: { _ in
-        let menuItemType = MenuItemType.industry
-        GameController.shared.openMenu.value = menuItemType
+        let menuItemType = MenuItemType.menuItems[view.tag].type
+        let alreadyOpen = GameController.shared.openMenu.value == menuItemType
+        GameController.shared.openMenu.value = alreadyOpen ? nil : menuItemType
       })
       .addDisposableTo(bag)
   }

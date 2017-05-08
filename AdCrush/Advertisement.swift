@@ -27,7 +27,7 @@ extension Advertisement {
   
   func crush() {
     isBeingCrushed = true
-    audioNode.play()
+    // audioNode?.play()
     
     let crush = Animation.crush.action
     let wait = SKAction.wait(forDuration: 0.3)
