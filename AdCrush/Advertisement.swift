@@ -34,7 +34,7 @@ extension Advertisement {
     let remove = SKAction.removeFromParent()
     let sequence = SKAction.sequence([crush, wait, remove])
     run(sequence)
-  }
+    }
 }
 
 // MARK: - Layout

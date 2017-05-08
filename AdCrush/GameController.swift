@@ -18,6 +18,8 @@ final class GameController {
     return self.loadForSaleItems()
   }()
   
+  private init() {}
+
   func forSaleItems(for menuType: MenuItemType) -> [ForSaleItem] {
     return saleItems.filter { $0.itemType == menuType }
   }
