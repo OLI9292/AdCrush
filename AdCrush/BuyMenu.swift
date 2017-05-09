@@ -71,7 +71,7 @@ class BuyMenu: UIView, UITableViewDelegate, UITableViewDataSource {
       $0.widthAnchor.constraint(equalTo: widthAnchor).isActive = true
       $0.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
       $0.topAnchor.constraint(equalTo: subtitleLabel.bottomAnchor, constant: 20).isActive = true
-      $0.heightAnchor.constraint(equalToConstant: 300).isActive = true
+      $0.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
     }
   }
   

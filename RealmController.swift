@@ -44,7 +44,7 @@ final class RealmController {
   static func itemBought(_ item: ForSaleItem) {
     guard let level = item.nextLevel else { return }
     try! shared.db.write {
-      shared.db.delete(level)
+      level.purchased = true
     }
   }
   
@@ -118,6 +118,66 @@ extension DataLoader {
     items.append(forSaleItem)
     
     forSaleItem = ForSaleItem(itemType: .industry, name: "Cigarettes")
+    item = ItemLevel(price: 50000, value: 5000)
+    item2 = ItemLevel(price: 100000, value: 10000)
+    item3 = ItemLevel(price: 150000, value: 15000)
+    [item, item2, item3].forEach { forSaleItem.levels.append($0) }
+    items.append(forSaleItem)
+    
+    
+    
+    forSaleItem = ForSaleItem(itemType: .medium, name: "Phone")
+    item = ItemLevel(price: 50, value: 200)
+    item2 = ItemLevel(price: 100, value: 300)
+    item3 = ItemLevel(price: 150, value: 400)
+    [item, item2, item3].forEach { forSaleItem.levels.append($0) }
+    items.append(forSaleItem)
+    
+    forSaleItem = ForSaleItem(itemType: .medium, name: "TV")
+    item = ItemLevel(price: 1000, value: 500)
+    item2 = ItemLevel(price: 1500, value: 750)
+    item3 = ItemLevel(price: 2000, value: 1000)
+    [item, item2, item3].forEach { forSaleItem.levels.append($0) }
+    items.append(forSaleItem)
+    
+    forSaleItem = ForSaleItem(itemType: .medium, name: "Subway")
+    item = ItemLevel(price: 5000, value: 1000)
+    item2 = ItemLevel(price: 10000, value: 1250)
+    item3 = ItemLevel(price: 25000, value: 1500)
+    [item, item2, item3].forEach { forSaleItem.levels.append($0) }
+    items.append(forSaleItem)
+    
+    forSaleItem = ForSaleItem(itemType: .medium, name: "Highway")
+    item = ItemLevel(price: 50000, value: 5000)
+    item2 = ItemLevel(price: 100000, value: 10000)
+    item3 = ItemLevel(price: 150000, value: 15000)
+    [item, item2, item3].forEach { forSaleItem.levels.append($0) }
+    items.append(forSaleItem)
+    
+    
+    
+    forSaleItem = ForSaleItem(itemType: .investment, name: "Save the Whales")
+    item = ItemLevel(price: 50, value: 200)
+    item2 = ItemLevel(price: 100, value: 300)
+    item3 = ItemLevel(price: 150, value: 400)
+    [item, item2, item3].forEach { forSaleItem.levels.append($0) }
+    items.append(forSaleItem)
+    
+    forSaleItem = ForSaleItem(itemType: .investment, name: "Cancer Research")
+    item = ItemLevel(price: 1000, value: 500)
+    item2 = ItemLevel(price: 1500, value: 750)
+    item3 = ItemLevel(price: 2000, value: 1000)
+    [item, item2, item3].forEach { forSaleItem.levels.append($0) }
+    items.append(forSaleItem)
+    
+    forSaleItem = ForSaleItem(itemType: .investment, name: "Internet Freedom")
+    item = ItemLevel(price: 5000, value: 1000)
+    item2 = ItemLevel(price: 10000, value: 1250)
+    item3 = ItemLevel(price: 25000, value: 1500)
+    [item, item2, item3].forEach { forSaleItem.levels.append($0) }
+    items.append(forSaleItem)
+    
+    forSaleItem = ForSaleItem(itemType: .investment, name: "Universal Basic Income")
     item = ItemLevel(price: 50000, value: 5000)
     item2 = ItemLevel(price: 100000, value: 10000)
     item3 = ItemLevel(price: 150000, value: 15000)

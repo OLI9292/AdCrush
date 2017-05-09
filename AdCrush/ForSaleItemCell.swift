@@ -14,10 +14,12 @@ class ForSaleItemCell: UITableViewCell {
   let nameLabel = UILabel()
   let valueLabel = UILabel()
   let priceLabel = UILabel()
-
+  let isCompleteImageView = UIImageView()
+  let currentLevelLabel = UILabel()
+  
   var item: ForSaleItem? {
     didSet {
-      layout()
+      setup()
     }
   }
   
@@ -30,7 +32,7 @@ class ForSaleItemCell: UITableViewCell {
   }
   
   var views: [UIView] {
-    return [itemImageView, nameLabel, valueLabel, priceLabel]
+    return [itemImageView, nameLabel, valueLabel, priceLabel, isCompleteImageView, currentLevelLabel]
   }
   
   static var reuseID = "forSaleItem"
@@ -38,13 +40,13 @@ class ForSaleItemCell: UITableViewCell {
   override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
     super.init(style: style, reuseIdentifier: reuseIdentifier)
     
-    layout()
+    setup()
   }
   
-  // MARK: - Layout
-  
-  func layout() {
+  func setup() {
     guard let item = item else { return }
+    
+    // MARK: - Layout
     
     backgroundColor = Palette.transparent.color
     
@@ -82,8 +84,26 @@ class ForSaleItemCell: UITableViewCell {
       $0.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -width(percentageOf: 0.1)).isActive = true
     }
     
+    _ = isCompleteImageView.then {
+      $0.image = #imageLiteral(resourceName: "sun")
+      $0.isHidden = true
+      // Anchors
+      $0.centerXAnchor.constraint(equalTo: priceLabel.centerXAnchor).isActive = true
+      $0.centerYAnchor.constraint(equalTo: priceLabel.centerYAnchor).isActive = true
+      $0.heightAnchor.constraint(equalToConstant: 50).isActive = true
+      $0.widthAnchor.constraint(equalTo: isCompleteImageView.heightAnchor).isActive = true
+    }
+    
+    _ = currentLevelLabel.then {
+      $0.font = UIFont(name: "Baloo-Regular", size: 20)
+      // Anchors
+      $0.centerXAnchor.constraint(equalTo: itemImageView.leadingAnchor).isActive = true
+      $0.centerYAnchor.constraint(equalTo: itemImageView.bottomAnchor).isActive = true
+    }
+    
     // MARK: - Observe
     
+    // Observe purchase button
     priceLabel.rx
       .anyGesture(.tap())
       .when(.recognized)
@@ -92,13 +112,22 @@ class ForSaleItemCell: UITableViewCell {
       })
       .addDisposableTo(bag)
     
-    Observable.from(object: item, properties: ["levels"])
-      .subscribe(onNext: { item in
-        self.priceLabel.text = self.price.clean
-        self.valueLabel.text = item.itemType.subtitle(self.value.clean)
+    // Observe item level for price and level text
+    Observable.collection(from: item.levels)
+      .subscribe(onNext: { _ in
+        self.currentLevelLabel.text = item.currentLevelText
+        if item.isComplete {
+          self.priceLabel.text = ""
+          self.valueLabel.text = ""
+          self.isCompleteImageView.isHidden = false
+        } else {
+          self.priceLabel.text = self.price.clean
+          self.valueLabel.text = item.itemType.subtitle(self.value.clean)
+        }
       })
       .addDisposableTo(bag)
     
+    // Observe karma for ability to purchase
     Observable.from(object: RealmController.user, properties: ["karma"])
       .subscribe(onNext: { user in
         self.priceLabel.isUserInteractionEnabled = user.karma > self.price
