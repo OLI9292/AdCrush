@@ -5,37 +5,38 @@
 import Foundation
 import SpriteKit
 
-enum Animation {
-  case crush
+class Animation {
+  var currentIndex = 0
+  var warpGrids = [SKWarpGeometry]()
+  let length: Float = 0.2
+  let iterations: Float = 10
+  var times = [NSNumber]()
   
-  var action: SKAction {
-    switch self {
-    case .crush:
-      return crush
-    }
-  }
-}
-
-private typealias CrushAction = Animation
-extension CrushAction {
-  
-  func shrink(value: Float) -> Float {
-    return value * 0.9
+  init() {
+    self.times = calculateTimes()
+    self.warpGrids = createWarpGrids()
   }
   
-  func wiggle(value: Float, dampen: Bool = false) -> Float {
-    return value + randomBetween(-0.02, and: 0.02) * (dampen ? value : 1)
+  func nextGrid() -> SKWarpGeometry? {
+    currentIndex += 1
+    guard currentIndex < warpGrids.count else { return nil }
+    print("currentIndex", currentIndex)
+    return warpGrids[currentIndex]
   }
   
-  func shrinkAndWiggle(value: Float, dampen: Bool = false) -> Float {
-    return wiggle(value: shrink(value: value), dampen: dampen)
-  }
-  
-  var crush: SKAction {
+  private func createWarpGrids() -> [SKWarpGeometry] {
     
-    let length: Float = 0.2
-    let iterations: Float = 20
-    let times: [NSNumber] = (0..<Int(iterations)).map({ Float($0) * (length / iterations) }).map { NSNumber(value: $0) }
+    func shrink(value: Float) -> Float {
+      return value * 0.7
+    }
+    
+    func wiggle(value: Float, dampen: Bool = false) -> Float {
+      return value + randomBetween(-0.02, and: 0.02) * (dampen ? value : 1)
+    }
+    
+    func shrinkAndWiggle(value: Float, dampen: Bool = false) -> Float {
+      return wiggle(value: shrink(value: value), dampen: dampen)
+    }
     
     var source = [
       float2(0, 0), float2(0.25, 0), float2(0.5, 0), float2(0.75, 0), float2(1, 0),
@@ -55,7 +56,11 @@ extension CrushAction {
       source = destination
       return geometries + [geometry]
     }
-
-    return SKAction.animate(withWarps: warpgrids, times: times)!
+    return warpgrids
+  }
+  
+  private func calculateTimes() -> [NSNumber] {
+    let times = (0..<Int(iterations)).map({ Float($0) * (length / iterations) }).map { NSNumber(value: $0) }
+    return times
   }
 }

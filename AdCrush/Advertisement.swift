@@ -9,9 +9,12 @@ class Advertisement: SKSpriteNode, GameElement {
   var isBeingCrushed = false
   var audioNode: AudioNode!
   var skScene: SKScene
+  var lowestY: CGFloat
+  var animation = Animation()
   
   init(skScene: SKScene) {
     self.skScene = skScene
+    self.lowestY = skScene.frame.height
     let texture = SKTexture(imageNamed: "ad\(8.asMaxRandom())")
     
     super.init(texture: texture, color: UIColor.blue, size: texture.size())
@@ -25,16 +28,18 @@ class Advertisement: SKSpriteNode, GameElement {
 // MARK: - Animation {
 extension Advertisement {
   
-  func crush() {
-    isBeingCrushed = true
-    // audioNode?.play()
-    
-    let crush = Animation.crush.action
-    let wait = SKAction.wait(forDuration: 0.3)
-    let remove = SKAction.removeFromParent()
-    let sequence = SKAction.sequence([crush, wait, remove])
-    run(sequence)
+  func nextFrame() {
+    if let nextGrid = animation.nextGrid() {
+      let warp = SKAction.warp(to: nextGrid, duration: 0.01)
+      self.run(warp!)
+    } else {
+      let wait = SKAction.wait(forDuration: 0.3)
+      let remove = SKAction.removeFromParent()
+      let fadeOut = SKAction.fadeOut(withDuration: 0.2)
+      let sequence = SKAction.sequence([wait, fadeOut, remove])
+      self.run(sequence)
     }
+  }
 }
 
 // MARK: - Layout
@@ -53,7 +58,18 @@ extension Advertisement {
 // MARK: - Overrides
 extension Advertisement {
   
+  override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+    lowestY = (touches.first?.location(in: self).y)!
+  }
+  
   override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
-    if !isBeingCrushed { crush() }
+    guard let touchLocation = touches.first?.location(in: self) else { return }
+    let y = touchLocation.y
+    print("y is", y)
+    if y < lowestY {
+      nextFrame()
+      lowestY = y - self.frame.height / 20
+    }
+    
   }
 }

@@ -57,7 +57,7 @@ class GameScene: SKScene {
   private func observeUser() {
     Observable.from(object: RealmController.user, properties: ["karma"])
       .subscribe(onNext: { user in
-        self.karmaCounter.text = "\(user.karma)"
+        self.karmaCounter.score = "\(user.karma)"
       })
       .addDisposableTo(bag)
   }
