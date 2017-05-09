@@ -11,7 +11,7 @@ class Advertisement: SKSpriteNode, GameElement {
   
   //animation variables
   var isAnimating = false
-  var animationTriggerDistances: [CGFloat] = [150, 50, 25]
+  var animationTriggerDistances: [CGFloat] = [150, 100, 100]
   var lastY: CGFloat = 150
   var currentTrigger = 0
   var animation = Animation()
@@ -74,14 +74,17 @@ extension Advertisement {
   override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
     guard let touchLocation = touches.first?.location(in: self) else { return }
     let y = touchLocation.y
+    if currentTrigger == animationTriggerDistances.count - 1 && !isAnimating{
+      print("trigger finishanimatino")
+      isAnimating = true
+      finishAnimation()
+    }
     if lastY - y >= animationTriggerDistances[currentTrigger] && !isAnimating {
       nextFrame()
+      print("y is", y)
       lastY = y
-      currentTrigger += 1 
-      if currentTrigger >= 2 {
-        isAnimating = true
-        finishAnimation()
-      }
+      print("last y is", lastY)
+      currentTrigger += 1
     }}
   
 }
