@@ -20,8 +20,21 @@ class Animation {
   func nextGrid() -> SKWarpGeometry? {
     currentIndex += 1
     guard currentIndex < warpGrids.count else { return nil }
-    print("currentIndex", currentIndex)
     return warpGrids[currentIndex]
+  }
+  
+  func finishAnimation() -> SKAction {
+    var grids = [SKWarpGeometry]()
+    var times = [NSNumber]()
+    while currentIndex < warpGrids.count {
+      print("line 30, current index is \(currentIndex)")
+      grids.append(warpGrids[currentIndex])
+      times.append(0.1)
+      self.currentIndex += 1
+    }
+    print("gridscount", grids.count)
+    print("timescount", times.count)
+    return SKAction.animate(withWarps: grids, times: times)!
   }
   
   private func createWarpGrids() -> [SKWarpGeometry] {

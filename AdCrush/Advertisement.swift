@@ -6,15 +6,18 @@ import SpriteKit
 
 class Advertisement: SKSpriteNode, GameElement {
   
-  var isBeingCrushed = false
   var audioNode: AudioNode!
   var skScene: SKScene
-  var lowestY: CGFloat
+  
+  //animation variables
+  var isAnimating = false
+  var animationTriggerDistances: [CGFloat] = [150, 50, 25]
+  var lastY: CGFloat = 150
+  var currentTrigger = 0
   var animation = Animation()
   
   init(skScene: SKScene) {
     self.skScene = skScene
-    self.lowestY = skScene.frame.height
     let texture = SKTexture(imageNamed: "ad\(8.asMaxRandom())")
     
     super.init(texture: texture, color: UIColor.blue, size: texture.size())
@@ -29,18 +32,28 @@ class Advertisement: SKSpriteNode, GameElement {
 extension Advertisement {
   
   func nextFrame() {
+    guard animation.currentIndex + 1 != animation.warpGrids.count else { removeAd(); return }
     if let nextGrid = animation.nextGrid() {
       let warp = SKAction.warp(to: nextGrid, duration: 0.01)
       self.run(warp!)
-    } else {
-      let wait = SKAction.wait(forDuration: 0.3)
-      let remove = SKAction.removeFromParent()
-      let fadeOut = SKAction.fadeOut(withDuration: 0.2)
-      let sequence = SKAction.sequence([wait, fadeOut, remove])
-      self.run(sequence)
     }
   }
+  
+  func finishAnimation() {
+    let remainingWarps = animation.finishAnimation()
+    self.run(remainingWarps)
+    self.removeAd()
+  }
+  
+  func removeAd() {
+    let wait = SKAction.wait(forDuration: 0.2)
+    let remove = SKAction.removeFromParent()
+    let fadeOut = SKAction.fadeOut(withDuration: 0.1)
+    let sequence = SKAction.sequence([wait, fadeOut, remove])
+    self.run(sequence)
+  }
 }
+
 
 // MARK: - Layout
 extension Advertisement {
@@ -58,18 +71,17 @@ extension Advertisement {
 // MARK: - Overrides
 extension Advertisement {
   
-  override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-    lowestY = (touches.first?.location(in: self).y)!
-  }
-  
   override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
     guard let touchLocation = touches.first?.location(in: self) else { return }
     let y = touchLocation.y
-    print("y is", y)
-    if y < lowestY {
+    if lastY - y >= animationTriggerDistances[currentTrigger] && !isAnimating {
       nextFrame()
-      lowestY = y - self.frame.height / 20
-    }
-    
-  }
+      lastY = y
+      currentTrigger += 1 
+      if currentTrigger >= 2 {
+        isAnimating = true
+        finishAnimation()
+      }
+    }}
+  
 }
