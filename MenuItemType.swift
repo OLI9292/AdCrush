@@ -14,4 +14,15 @@ enum MenuItemType: String {
       (.investment, #imageLiteral(resourceName: "investment"))
     ]
   }
+  
+  func subtitle(_ value: String) -> String {
+    switch self {
+    case .industry:
+      return "Next: \(value)/Crush"
+    case .investment:
+      return "Next: \(value)/Multiplier"
+    case .medium:
+      return "Next: \(value) K/s"
+    }
+  }
 }

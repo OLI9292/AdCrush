@@ -20,11 +20,9 @@ class Advertisement: SKSpriteNode, GameElement {
   required init?(coder aDecoder: NSCoder) {
     fatalError("init(coder:) has not been implemented")
   }
-}
 
-// MARK: - Animation {
-extension Advertisement {
-  
+  // MARK: - Animation {
+
   func crush() {
     isBeingCrushed = true
     // audioNode?.play()
@@ -34,11 +32,9 @@ extension Advertisement {
     let remove = SKAction.removeFromParent()
     let sequence = SKAction.sequence([crush, wait, remove])
     run(sequence)
-    }
-}
+  }
 
-// MARK: - Layout
-extension Advertisement {
+  // MARK: - Layout
   
   func layout() {
     position = CGPoint(x: skScene.size.width / 2 , y: skScene.size.height / 2)
@@ -48,10 +44,8 @@ extension Advertisement {
     audioNode = AudioNode(soundString: "stomp.wav")
     skScene.addChild(self.audioNode!.sound)
   }
-}
 
-// MARK: - Overrides
-extension Advertisement {
+  // MARK: - Overrides
   
   override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
     if !isBeingCrushed { crush() }

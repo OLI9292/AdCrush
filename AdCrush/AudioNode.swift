@@ -19,4 +19,3 @@ struct AudioNode {
     sound.run(SKAction.play())
   }
 }
-

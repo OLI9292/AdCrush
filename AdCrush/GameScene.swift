@@ -25,15 +25,10 @@ class GameScene: SKScene {
     addRandomAdvertisement()
   }
   
-  private func observe() {
-    observeUser()
-  }
-
   // Mark: - Overrides
   
   override func didMove(to view: SKView) {
     setup()
-    observe()
   }
   
   override func update(_ currentTime: TimeInterval) {
@@ -50,15 +45,5 @@ class GameScene: SKScene {
   private func addKarmaCounter() {
     karmaCounter = KarmaCounter(skScene: self)
     karmaCounter.layout()
-  }
-
-  // MARK: - Observe
-  
-  private func observeUser() {
-    Observable.from(object: RealmController.user, properties: ["karma"])
-      .subscribe(onNext: { user in
-        self.karmaCounter.text = "\(user.karma)"
-      })
-      .addDisposableTo(bag)
   }
 }

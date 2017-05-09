@@ -3,11 +3,16 @@
 ///
 
 import Then
+import RxSwift
+import RealmSwift
 import UIKit
 
 class BuyMenu: UIView, UITableViewDelegate, UITableViewDataSource {
   
+  let bag = DisposeBag()
+  
   let itemsTableView = UITableView()
+  let subtitleLabel = UILabel()
   
   var menuItemType: MenuItemType
   let items: [ForSaleItem]
@@ -37,9 +42,8 @@ class BuyMenu: UIView, UITableViewDelegate, UITableViewDataSource {
     }
     
     // Current Value Subtitle
-    let subTitle = UILabel().then {
+    _ = subtitleLabel.then {
       addSubview($0)
-      $0.text = subtitle(for: menuItemType)
       $0.font = UIFont(name: "Baloo-Regular", size: 14)
       $0.textColor = Palette.darkGrey.color
       // Constraints
@@ -47,6 +51,12 @@ class BuyMenu: UIView, UITableViewDelegate, UITableViewDataSource {
       $0.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
       $0.topAnchor.constraint(equalTo: title.bottomAnchor).isActive = true
     }
+    
+    Observable.from(object: RealmController.user)
+      .subscribe(onNext: { user in
+        self.subtitleLabel.text = self.subtitle(for: self.menuItemType)
+      })
+      .addDisposableTo(bag)
     
     // Items Table View
     _ = itemsTableView.then {
@@ -60,7 +70,7 @@ class BuyMenu: UIView, UITableViewDelegate, UITableViewDataSource {
       $0.freeConstraints()
       $0.widthAnchor.constraint(equalTo: widthAnchor).isActive = true
       $0.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
-      $0.topAnchor.constraint(equalTo: subTitle.bottomAnchor, constant: 20).isActive = true
+      $0.topAnchor.constraint(equalTo: subtitleLabel.bottomAnchor, constant: 20).isActive = true
       $0.heightAnchor.constraint(equalToConstant: 300).isActive = true
     }
   }
@@ -68,11 +78,11 @@ class BuyMenu: UIView, UITableViewDelegate, UITableViewDataSource {
   private func subtitle(for menuType: MenuItemType) -> String {
     switch menuType {
     case .industry:
-      return "CURRENT VALUE PER CRUSH: "
+      return "CURRENT VALUE PER CRUSH: \(RealmController.user.valuePerCrush.clean)"
     case .investment:
-      return "CURRENT KARMA PER SECOND: "
+      return "CURRENT KARMA PER SECOND: \(RealmController.user.karmaPerSecond.clean)"
     case .medium:
-      return "CURRENT MULTIPLIER PER CRUSH: "
+      return "CURRENT MULTIPLIER PER CRUSH: \(RealmController.user.multiplierPerCrush.clean)x"
     }
   }
   

@@ -15,13 +15,18 @@ class ForSaleItemCell: UITableViewCell {
   let valueLabel = UILabel()
   let priceLabel = UILabel()
 
-  var item: ForSaleItem! {
+  var item: ForSaleItem? {
     didSet {
-      nameLabel.text = item.name
-      itemImageView.image = UIImage(named: item.name.lowercased())
-      valueLabel.text = String(describing: item.nextLevel?.price ?? 0)
-      priceLabel.text = String(describing: item.nextLevel?.value)
+      layout()
     }
+  }
+  
+  var price: Float {
+    return item?.nextLevel?.price ?? 0
+  }
+  
+  var value: Float {
+    return item?.nextLevel?.value ?? 0
   }
   
   var views: [UIView] {
@@ -39,12 +44,15 @@ class ForSaleItemCell: UITableViewCell {
   // MARK: - Layout
   
   func layout() {
+    guard let item = item else { return }
+    
     backgroundColor = Palette.transparent.color
     
     views.forEach { contentView.addSubview($0) }
     views.forEach { $0.freeConstraints() }
     
     _ = itemImageView.then {
+      $0.image = UIImage(named: item.name.lowercased())
       // Anchors
       $0.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
       $0.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.5).isActive = true
@@ -53,6 +61,7 @@ class ForSaleItemCell: UITableViewCell {
     }
     
     _ = nameLabel.then {
+      $0.text = item.name
       $0.font = UIFont(name: "Baloo-Regular", size: 20)
       // Anchors
       $0.leadingAnchor.constraint(equalTo: itemImageView.trailingAnchor, constant: 20).isActive = true
@@ -68,22 +77,32 @@ class ForSaleItemCell: UITableViewCell {
     
     _ = priceLabel.then {
       $0.font = UIFont(name: "Baloo-Regular", size: 24)
-      // Tap Gesture Observer
-      observeForTap($0)
       // Anchors
       $0.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
       $0.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -width(percentageOf: 0.1)).isActive = true
     }
-  }
-  
-  // MARK: - User Interaction
-  
-  private func observeForTap(_ view: UILabel) {
-    view.rx
+    
+    // MARK: - Observe
+    
+    priceLabel.rx
       .anyGesture(.tap())
       .when(.recognized)
       .subscribe(onNext: { _ in
-        GameController.shared.buy(self.item)
+        RealmController.user.buy(item: item)
+      })
+      .addDisposableTo(bag)
+    
+    Observable.from(object: item, properties: ["levels"])
+      .subscribe(onNext: { item in
+        self.priceLabel.text = self.price.clean
+        self.valueLabel.text = item.itemType.subtitle(self.value.clean)
+      })
+      .addDisposableTo(bag)
+    
+    Observable.from(object: RealmController.user, properties: ["karma"])
+      .subscribe(onNext: { user in
+        self.priceLabel.isUserInteractionEnabled = user.karma > self.price
+        self.priceLabel.textColor = user.karma > self.price ? .white : Palette.darkGrey.color
       })
       .addDisposableTo(bag)
   }

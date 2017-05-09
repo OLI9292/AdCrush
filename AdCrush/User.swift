@@ -7,24 +7,24 @@ import RealmSwift
 
 class User: Object {
   
-  dynamic var karma: Float = 0
+  dynamic var karma: Float = 100000
   dynamic var karmaPerSecond: Float = 0
   dynamic var multiplierPerCrush: Float = 1
   dynamic var valuePerCrush: Float = 1
   
-  func buy(itemType: MenuItemType, level: ItemAttributes) {
+  func buy(item: ForSaleItem) {
+    guard let price = item.nextLevel?.price, let value = item.nextLevel?.value else { return }
+    
+    RealmController.spend(user: self, price: price)
+    RealmController.itemBought(item)
 
-    RealmController.spend(user: self, price: level.price)
-
-    switch itemType {
+    switch item.itemType {
     case .industry:
-      RealmController.increase(valuePerCrush: level.value)
+      RealmController.increase(valuePerCrush: value)
     case .investment:
-      RealmController.increase(karmaPerSecond: level.value)
+      RealmController.increase(karmaPerSecond: value)
     case .medium:
-      RealmController.increase(multiplierPerCrush: level.value)
+      RealmController.increase(multiplierPerCrush: value)
     }
   }
 }
-
-
