@@ -6,14 +6,25 @@ import Foundation
 import SpriteKit
 
 enum Animation {
-  case crush
+  case crushLeft, crushRight, crushUp, crushDown
   
   var action: SKAction {
     switch self {
-    case .crush:
-      return crush
+    case .crushLeft:
+      return crushLeft
+    case .crushRight:
+      return crushRight
+    case .crushUp:
+      return crushUp
+    case .crushDown:
+      return crushDown
     }
+    
   }
+}
+
+enum CrushDirection: String {
+  case left, right, up, down
 }
 
 private typealias CrushAction = Animation
@@ -29,6 +40,26 @@ extension CrushAction {
   
   func shrinkAndWiggle(value: Float, dampen: Bool = false) -> Float {
     return wiggle(value: shrink(value: value), dampen: dampen)
+  }
+  
+  var crushLeft: SKAction {
+    print("crush it left")
+    return SKAction()
+  }
+  
+  var crushRight: SKAction {
+    print("crush it right")
+    return SKAction()
+  }
+  
+  var crushUp: SKAction {
+    print("crush it up")
+    return SKAction()
+  }
+  
+  var crushDown: SKAction {
+    print("crush it down")
+    return SKAction()
   }
   
   var crush: SKAction {
@@ -55,7 +86,7 @@ extension CrushAction {
       source = destination
       return geometries + [geometry]
     }
-
+    
     return SKAction.animate(withWarps: warpgrids, times: times)!
   }
 }
