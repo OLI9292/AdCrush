@@ -31,8 +31,8 @@ class BuyMenu: UIView, UITableViewDelegate, UITableViewDataSource {
     // Title
     let title = UILabel().then {
       addSubview($0)
-      $0.text = menuItemType.rawValue.uppercased()
-      $0.font = UIFont(name: "Baloo-Regular", size: 32)
+      $0.text = menuItemType.title.uppercased()
+      $0.font = UIFont(name: "Baloo-Regular", size: 28)
       $0.textColor = .white
       // Constraints
       $0.freeConstraints()
@@ -79,10 +79,10 @@ class BuyMenu: UIView, UITableViewDelegate, UITableViewDataSource {
     switch menuType {
     case .industry:
       return "CURRENT VALUE PER CRUSH: \(RealmController.user.valuePerCrush.clean)"
-    case .investment:
-      return "CURRENT KARMA PER SECOND: \(RealmController.user.karmaPerSecond.clean)"
     case .medium:
       return "CURRENT MULTIPLIER PER CRUSH: \(RealmController.user.multiplierPerCrush.clean)x"
+    case .investment:
+      return "CURRENT KARMA PER SECOND: \(RealmController.user.karmaPerSecond.clean)"
     }
   }
   

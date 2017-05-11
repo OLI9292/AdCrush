@@ -32,10 +32,14 @@ class GameScene: SKScene {
   }
   
   override func update(_ currentTime: TimeInterval) {
-    if noAds {
-      
-      addRandomAdvertisement()
-    }
+    gainKarmaPerFrame()
+    if noAds { addRandomAdvertisement()}
+  }
+  
+  // MARK: - Game State Methods
+  
+  func gainKarmaPerFrame() {
+    RealmController.gain(karma: Float(RealmController.user.karmaPerFrame))
   }
 
   // MARK: - Setup

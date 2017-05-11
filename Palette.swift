@@ -15,6 +15,7 @@ enum Palette {
   purple,
   red,
   yellow,
+  white,
   // Custom
   darkGrey,
   // Transparent
@@ -37,6 +38,8 @@ enum Palette {
       return UIColor(hex: 0xFF0000)
     case .yellow:
       return UIColor(hex: 0xFFFF00)
+    case .white:
+      return UIColor(hex: 0xFFFFFF)
     // Custom
     case .darkGrey:
       return UIColor(hex: 0x4A4A4A)

@@ -80,17 +80,19 @@ class ForSaleItemCell: UITableViewCell {
     _ = priceLabel.then {
       $0.font = UIFont(name: "Baloo-Regular", size: 24)
       // Anchors
+      $0.textAlignment = .center
       $0.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
       $0.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -width(percentageOf: 0.1)).isActive = true
     }
     
     _ = isCompleteImageView.then {
-      $0.image = #imageLiteral(resourceName: "sun")
+      $0.image = #imageLiteral(resourceName: "sun").withRenderingMode(.alwaysTemplate)
+      $0.tintColor = Palette.white.color
       $0.isHidden = true
       // Anchors
-      $0.centerXAnchor.constraint(equalTo: priceLabel.centerXAnchor).isActive = true
+      $0.centerXAnchor.constraint(equalTo: self.centerXAnchor, constant: self.frame.width / 3).isActive = true
       $0.centerYAnchor.constraint(equalTo: priceLabel.centerYAnchor).isActive = true
-      $0.heightAnchor.constraint(equalToConstant: 50).isActive = true
+      $0.heightAnchor.constraint(equalToConstant: 40).isActive = true
       $0.widthAnchor.constraint(equalTo: isCompleteImageView.heightAnchor).isActive = true
     }
     
