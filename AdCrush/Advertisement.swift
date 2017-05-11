@@ -9,15 +9,19 @@ import RxGesture
 class Advertisement: SKSpriteNode, GameElement {
   
   var bag = DisposeBag()
+  var isBeingCrushed = false
   
   var audioNode: AudioNode!
   var skScene: SKScene
   
   init(skScene: SKScene) {
     self.skScene = skScene
+   
     let texture = SKTexture(imageNamed: "ad\(10.asMaxRandom())")
     
     super.init(texture: texture, color: UIColor.blue, size: texture.size())
+
+    addPhysics()
     observeGesture()
   }
   
@@ -40,22 +44,33 @@ class Advertisement: SKSpriteNode, GameElement {
       })
       .addDisposableTo(bag)
   }
+  
+  // MARK: - Physics
+  
+  func addPhysics() {
+    self.physicsBody = SKPhysicsBody(rectangleOf: CGSize(width: self.size.width,
+                                                         height: self.size.height))
+    physicsBody?.affectedByGravity = false
+    physicsBody?.collisionBitMask = 0
+    
+  }
 
   // MARK: - Animation
   
   func crush(with velocity: CGPoint, direction: CrushDirection) {
-    RealmController.user.gain(karma: RealmController.user.totalKarmaPerCrush)
+    isBeingCrushed = true
+    physicsBody?.affectedByGravity = true
     
+    let flyAway = SKAction.applyImpulse(CGVector(dx: velocity.x * 10, dy: velocity.y * 10), duration: 0.2)
+    self.run(flyAway)
+
+    RealmController.user.gain(karma: RealmController.user.totalKarmaPerCrush)
     // audioNode?.play()
  
-    var absoluteVelocity: Float
-    if direction == .left || direction == .right { absoluteVelocity = abs(Float(velocity.x)) }
-    else { absoluteVelocity = abs(Float(velocity.y)) }
-      
-    let crush = CrushAnimation(velocity: absoluteVelocity, direction: direction)
+    let crush = CrushAnimation(velocity: velocity, direction: direction)
     
     let crushAction = crush.action
-    let wait = SKAction.wait(forDuration: 0.01)
+    let wait = SKAction.wait(forDuration: 1.0)
     let remove = SKAction.removeFromParent()
     let sequence = SKAction.sequence([crushAction, wait, remove])
     run(sequence)
@@ -77,7 +92,7 @@ class Advertisement: SKSpriteNode, GameElement {
     position = CGPoint(x: skScene.size.width / 2 , y: skScene.size.height / 2)
     size = CGSize(width: 300, height: 300)
     isUserInteractionEnabled = true
-    skScene.addChild(self)
+    skScene.insertChild(self, at: 0)
     audioNode = AudioNode(soundString: "stomp.wav")
     skScene.addChild(self.audioNode!.sound)
   }
