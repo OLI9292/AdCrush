@@ -4,6 +4,7 @@
 
 import Foundation
 import UIKit
+import SpriteKit
 
 extension Int {
   func asMaxRandom() -> Int {
@@ -25,7 +26,6 @@ extension Float {
   }
 
 }
-
 
 // MARK: - UIKit
 extension UIView {

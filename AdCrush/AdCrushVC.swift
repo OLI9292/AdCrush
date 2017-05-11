@@ -22,7 +22,6 @@ class AdCrushVC: UIViewController {
     super.viewDidLoad()
     
     //RealmController.seed()
-    
     //RealmController.user.gain(karma: 500)
     
     setup()

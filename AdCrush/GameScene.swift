@@ -16,7 +16,8 @@ class GameScene: SKScene {
   private var kpsCounter: KPSCounter!
 
   private var noAds: Bool {
-    return children.filter({ $0 is Advertisement }).count == 0
+    let ads = children.flatMap{ $0 as? Advertisement }
+    return ads.filter{ $0.isBeingCrushed == false }.count == 0
   }
   
   private func setup() {

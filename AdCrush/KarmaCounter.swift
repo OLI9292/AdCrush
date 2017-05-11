@@ -22,7 +22,6 @@ class KarmaCounter: SKSpriteNode, GameElement {
     
     lastScore = String(RealmController.user.karma)
     newLabelNodes(score: lastScore)
-    newKarmaPerSecondLabel(karmaPerSecond: RealmController.user.karmaPerSecond.clean)
     observeKarma()
   }
   
@@ -63,18 +62,6 @@ class KarmaCounter: SKSpriteNode, GameElement {
   func removeAllChildrenNodes() {
     children.forEach { $0.run(SKAction.fadeOut(withDuration: 0.1)) }
     children.forEach { $0.removeFromParent() }
-  }
-  
-  func newKarmaPerSecondLabel(karmaPerSecond: String) {
-    _ = SKLabelNode().then {
-      $0.fontSize = 28
-      $0.fontName = "Baloo-Regular"
-      $0.fontColor = Palette.red.color
-      $0.text = "\(karmaPerSecond) Karma Per Second"
-      $0.position = CGPoint(x: skScene.size.width / 2,  y: skScene.size.height / 1.8 )
-      $0.zPosition = 100
-      self.addChild($0)
-    }
   }
   
   func textLabelNode(for character: Character, atIndex index: Int) -> SKLabelNode {

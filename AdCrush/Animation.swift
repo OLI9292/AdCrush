@@ -6,14 +6,25 @@ import Foundation
 import SpriteKit
 
 enum Animation {
-  case crush
+  case crushLeft, crushRight, crushUp, crushDown
   
   var action: SKAction {
     switch self {
-    case .crush:
-      return crush
+    case .crushLeft:
+      return crushLeft
+    case .crushRight:
+      return crushRight
+    case .crushUp:
+      return crushUp
+    case .crushDown:
+      return crushDown
     }
+    
   }
+}
+
+enum CrushDirection: String {
+  case left, right, up, down
 }
 
 private typealias CrushAction = Animation
@@ -31,7 +42,45 @@ extension CrushAction {
     return wiggle(value: shrink(value: value), dampen: dampen)
   }
   
-  var crush: SKAction {
+  var crushLeft: SKAction {
+    let length: Float = 0.2
+    let iterations: Float = 20
+    let times: [NSNumber] = (0..<Int(iterations)).map({ Float($0) * (length / iterations) }).map { NSNumber(value: $0) }
+    
+    var source = [
+      float2(0, 0), float2(0.25, 0), float2(0.5, 0), float2(0.75, 0), float2(1, 0),
+      float2(0, 0.25), float2(0.25, 0.25), float2(0.5, 0.25), float2(0.75, 0.25), float2(1, 0.25),
+      float2(0, 0.5), float2(0.25, 0.5), float2(0.5, 0.5), float2(0.75, 0.5), float2(1, 0.5),
+      float2(0, 0.75), float2(0.25, 0.75), float2(0.5, 0.75), float2(0.75, 0.75), float2(1, 0.75),
+      float2(0, 1), float2(0.25, 1), float2(0.5, 1), float2(0.75, 1), float2(1, 1)
+    ]
+
+    func leftVectorShift(_ vector: float2) -> float2 {
+      return float2( shrinkAndWiggle(value: vector.x, dampen: false), wiggle(value: vector.y))
+    }
+    
+    let warpgrids: [SKWarpGeometry] = times.reduce([]) { (geometries, _) in
+      let destination = source.map(leftVectorShift)
+      let geometry = SKWarpGeometryGrid(columns: 4, rows: 4, sourcePositions: source, destinationPositions: destination)
+      source = destination
+      return geometries + [geometry]
+    }
+    
+    return SKAction.animate(withWarps: warpgrids, times: times)!
+  }
+
+  
+  var crushRight: SKAction {
+    print("crush it right")
+    return SKAction()
+  }
+  
+  var crushUp: SKAction {
+    print("crush it up")
+    return SKAction()
+  }
+  
+  var crushDown: SKAction {
     
     let length: Float = 0.2
     let iterations: Float = 20
@@ -55,7 +104,7 @@ extension CrushAction {
       source = destination
       return geometries + [geometry]
     }
-
+    
     return SKAction.animate(withWarps: warpgrids, times: times)!
   }
 }
