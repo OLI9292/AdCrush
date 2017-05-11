@@ -44,8 +44,7 @@ class KPSCounter: SKLabelNode, GameElement {
     fontSize = 18
     fontName = "Baloo-Regular"
     fontColor = Palette.white.color
-    text = "\(RealmController.user.karmaPerSecond) Karma Per Second"
-    position = CGPoint(x: skScene.size.width / 2,  y: skScene.size.height / 1.3 )
+    position = CGPoint(x: skScene.size.width / 2,  y: skScene.size.height / 1.2 )
   }
   
   

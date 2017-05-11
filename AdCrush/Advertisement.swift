@@ -13,7 +13,7 @@ class Advertisement: SKSpriteNode, GameElement {
   
   init(skScene: SKScene) {
     self.skScene = skScene
-    let texture = SKTexture(imageNamed: "ad\(8.asMaxRandom())")
+    let texture = SKTexture(imageNamed: "ad\(10.asMaxRandom())")
     
     super.init(texture: texture, color: UIColor.blue, size: texture.size())
     setup()

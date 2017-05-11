@@ -21,9 +21,9 @@ class AdCrushVC: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     
-    RealmController.seed()
+    //RealmController.seed()
     
-    RealmController.user.gain(karma: 500)
+    //RealmController.user.gain(karma: 500)
     
     setup()
     observe()

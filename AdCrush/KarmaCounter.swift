@@ -115,7 +115,7 @@ class KarmaCounter: SKSpriteNode, GameElement {
   func repositionKarmaCounter(for score: String) {
     let numberOfBoxes = CGFloat(score.characters.count)
     let xDisplacement = CGFloat(numberOfBoxes * (CGFloat(whiteBackgroundXPosition) / 2))
-    position = CGPoint(x: skScene.size.width / 2 - xDisplacement,  y: skScene.size.height / 1.2 )
+    position = CGPoint(x: skScene.size.width / 2 - xDisplacement,  y: skScene.size.height / 1.1 )
   }
   
   func whiteBackgroundNode(at locationIndex: Int, size: CGSize) -> SKShapeNode {
