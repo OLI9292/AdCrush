@@ -32,7 +32,10 @@ class GameScene: SKScene {
   }
   
   override func update(_ currentTime: TimeInterval) {
-    if noAds { addRandomAdvertisement() }
+    if noAds {
+      
+      addRandomAdvertisement()
+    }
   }
 
   // MARK: - Setup

@@ -63,6 +63,7 @@ class BuyMenu: UIView, UITableViewDelegate, UITableViewDataSource {
       $0.dataSource = self
       $0.register(ForSaleItemCell.self, forCellReuseIdentifier: ForSaleItemCell.reuseID)
       $0.backgroundColor = Palette.transparent.color
+      $0.separatorColor = Palette.transparent.color
       $0.showsVerticalScrollIndicator = false
       addSubview($0)
       // Constraints

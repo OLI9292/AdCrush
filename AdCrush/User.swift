@@ -11,6 +11,9 @@ class User: Object {
   dynamic var karmaPerSecond: Float = 0
   dynamic var multiplierPerCrush: Float = 1
   dynamic var valuePerCrush: Float = 1
+  dynamic var totalKarmaPerCrush: Float {
+    return valuePerCrush * multiplierPerCrush
+  }
   
   func buy(item: ForSaleItem) {
     guard let price = item.nextLevel?.price, let value = item.nextLevel?.value else { return }
@@ -26,5 +29,9 @@ class User: Object {
     case .medium:
       RealmController.increase(multiplierPerCrush: value)
     }
+  }
+  
+  func gain(karma: Float) {
+    RealmController.gain(karma: karma)
   }
 }

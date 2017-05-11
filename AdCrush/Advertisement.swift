@@ -3,6 +3,7 @@
 ///
 
 import SpriteKit
+import RxSwift
 
 class Advertisement: SKSpriteNode, GameElement {
   
@@ -15,6 +16,7 @@ class Advertisement: SKSpriteNode, GameElement {
     let texture = SKTexture(imageNamed: "ad\(8.asMaxRandom())")
     
     super.init(texture: texture, color: UIColor.blue, size: texture.size())
+    setup()
   }
   
   required init?(coder aDecoder: NSCoder) {
@@ -25,8 +27,10 @@ class Advertisement: SKSpriteNode, GameElement {
 
   func crush() {
     isBeingCrushed = true
-    // audioNode?.play()
+    RealmController.user.gain(karma: RealmController.user.totalKarmaPerCrush)
+    print("\(RealmController.user.totalKarmaPerCrush) Karma Added")
     
+    // audioNode?.play()
     let crush = Animation.crush.action
     let wait = SKAction.wait(forDuration: 0.3)
     let remove = SKAction.removeFromParent()
@@ -50,4 +54,9 @@ class Advertisement: SKSpriteNode, GameElement {
   override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
     if !isBeingCrushed { crush() }
   }
+  
+  // MARK: - Observer
+  func setup() {
+  }
+
 }
