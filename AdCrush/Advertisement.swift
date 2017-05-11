@@ -40,6 +40,26 @@ class Advertisement: SKSpriteNode, GameElement {
       })
       .addDisposableTo(bag)
   }
+
+  // MARK: - Animation
+  
+  func crush(with velocity: CGPoint, direction: CrushDirection) {
+    RealmController.user.gain(karma: RealmController.user.totalKarmaPerCrush)
+    
+    // audioNode?.play()
+ 
+    var absoluteVelocity: Float
+    if direction == .left || direction == .right { absoluteVelocity = abs(Float(velocity.x)) }
+    else { absoluteVelocity = abs(Float(velocity.y)) }
+      
+    let crush = CrushAnimation(velocity: absoluteVelocity, direction: direction)
+    
+    let crushAction = crush.action
+    let wait = SKAction.wait(forDuration: 0.01)
+    let remove = SKAction.removeFromParent()
+    let sequence = SKAction.sequence([crushAction, wait, remove])
+    run(sequence)
+  }
   
   private func determineDirection(velocity: CGPoint) -> CrushDirection {
     let isVerticalGesture = abs(velocity.y) > abs(velocity.x)
@@ -49,34 +69,6 @@ class Advertisement: SKSpriteNode, GameElement {
       return velocity.x > 0 ? CrushDirection.right : CrushDirection.left
     }
     
-  }
-  // MARK: - Animation
-  
-  func crush(with velocity: CGPoint, direction: CrushDirection) {
-    RealmController.user.gain(karma: RealmController.user.totalKarmaPerCrush)
-    
-    // audioNode?.play()
- 
-    let crush = crushAction(with: direction)
-    let wait = SKAction.wait(forDuration: 0.3)
-    let remove = SKAction.removeFromParent()
-    let sequence = SKAction.sequence([crush, wait, remove])
-    run(sequence)
-  }
-  
-  private func crushAction(with direction: CrushDirection) -> SKAction {
-    var typeOfCrush: Animation!
-    switch direction {
-    case .left:
-      typeOfCrush = .crushLeft
-    case .right:
-      typeOfCrush = .crushRight
-    case .down:
-      typeOfCrush = .crushDown
-    case .up:
-      typeOfCrush = .crushUp
-    }
-    return typeOfCrush.action
   }
   
   // MARK: - Layout
