@@ -13,6 +13,7 @@ class KarmaCounter: SKSpriteNode, GameElement {
   
   var skScene: SKScene
   let backgroundSize = CGSize(width: 40, height: 40)
+  let whiteBackgroundXPosition = 50
   var lastScore: String = "0"
   
   init(skScene: SKScene) {
@@ -21,17 +22,18 @@ class KarmaCounter: SKSpriteNode, GameElement {
     
     lastScore = String(RealmController.user.karma)
     newLabelNodes(score: lastScore)
+    newKarmaPerSecondLabel(karmaPerSecond: RealmController.user.karmaPerSecond.clean)
     observeKarma()
   }
   
   private func observeKarma() {
     Observable.from(object: RealmController.user, properties: ["karma"])
       .subscribe(onNext: { user in
-        self.updateScore(user.karma.clean)
+        self.updateScore(user.karma.noDecimals)
       })
       .addDisposableTo(bag)
   }
-  
+
   required init?(coder aDecoder: NSCoder) {
     fatalError("init(coder:) has not been implemented")
   }
@@ -43,11 +45,11 @@ class KarmaCounter: SKSpriteNode, GameElement {
     sameLength ? updateNodes(score: score) : newLabelNodes(score: score)
     lastScore = score
   }
-  
+
   func updateNodes(score: String) {
     for (index, (new, _)) in zip(score.characters, lastScore.characters).enumerated().filter( { $1.0 != $1.1 }) {
       let label = self.children.flatMap({ $0.childNode(withName: "textLabel-\(index)") }).first as? SKLabelNode
-      UIView.animate(withDuration: 0.2, animations: { label?.text = String(new) })
+      UIView.animate(withDuration: 0.1, animations: { label?.text = String(new) })
     }
   }
   
@@ -59,9 +61,33 @@ class KarmaCounter: SKSpriteNode, GameElement {
   }
   
   func removeAllChildrenNodes() {
-    children.forEach { $0.run(SKAction.fadeOut(withDuration: 0.2)) }
+    children.forEach { $0.run(SKAction.fadeOut(withDuration: 0.1)) }
     children.forEach { $0.removeFromParent() }
   }
+  
+  func newKarmaPerSecondLabel(karmaPerSecond: String) {
+    _ = SKLabelNode().then {
+      $0.fontSize = 28
+      $0.fontName = "Baloo-Regular"
+      $0.fontColor = Palette.red.color
+      $0.text = "\(karmaPerSecond) Karma Per Second"
+      $0.position = CGPoint(x: skScene.size.width / 2,  y: skScene.size.height / 1.8 )
+      $0.zPosition = 100
+      self.addChild($0)
+    }
+  }
+  
+  func textLabelNode(for character: Character, atIndex index: Int) -> SKLabelNode {
+    return SKLabelNode().then {
+      $0.name = "textLabel-\(index)"
+      $0.text = String(character)
+      $0.verticalAlignmentMode = .center
+      $0.fontName = "Baloo-Regular"
+      $0.fontColor = Palette.darkGrey.color
+      $0.text = String(character)
+    }
+  }
+
   
   func addKarmaIcon() {
     let background = whiteBackgroundNode(at: 0, size: backgroundSize)
@@ -73,7 +99,7 @@ class KarmaCounter: SKSpriteNode, GameElement {
     karmaImage.position = CGPoint(x: 0, y: 0)
     
     background.addChild(karmaImage)
-    background.run(SKAction.fadeIn(withDuration: 0.2))
+    background.run(SKAction.fadeIn(withDuration: 0.1))
   }
   
   func addDigitNodes(for score: String) {
@@ -82,14 +108,14 @@ class KarmaCounter: SKSpriteNode, GameElement {
       addChild(background)
       let label = textLabelNode(for: character, atIndex: index)
       background.addChild(label)
-      background.run(SKAction.fadeIn(withDuration: 0.2))
+      background.run(SKAction.fadeIn(withDuration: 0.1))
     }
   }
   
   func repositionKarmaCounter(for score: String) {
-    let numberOfBoxes = CGFloat(score.characters.count + 1)
-    let xDisplacement = CGFloat(numberOfBoxes / 2 * backgroundSize.width)
-    position = CGPoint(x: skScene.size.width / 2 - xDisplacement,  y: skScene.size.height / 1.2 )
+    let numberOfBoxes = CGFloat(score.characters.count)
+    let xDisplacement = CGFloat(numberOfBoxes * (CGFloat(whiteBackgroundXPosition) / 2))
+    position = CGPoint(x: skScene.size.width / 2 - xDisplacement,  y: skScene.size.height / 1.1 )
   }
   
   func whiteBackgroundNode(at locationIndex: Int, size: CGSize) -> SKShapeNode {
@@ -102,19 +128,8 @@ class KarmaCounter: SKSpriteNode, GameElement {
           height: backgroundSize.height),
         cornerRadius: 5).cgPath
       $0.fillColor = .white
-      $0.position = CGPoint(x: 50 * locationIndex, y: 0)
+      $0.position = CGPoint(x: whiteBackgroundXPosition * locationIndex, y: 0)
       $0.alpha = 0
-    }
-  }
-  
-  func textLabelNode(for character: Character, atIndex index: Int) -> SKLabelNode {
-    return SKLabelNode().then {
-      $0.name = "textLabel-\(index)"
-      $0.text = String(character)
-      $0.verticalAlignmentMode = .center
-      $0.fontName = "Baloo-Regular"
-      $0.fontColor = Palette.darkGrey.color
-      $0.text = String(character)
     }
   }
   

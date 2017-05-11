@@ -25,15 +25,14 @@ class BuyMenu: UIView, UITableViewDelegate, UITableViewDataSource {
     layout()
   }
   
-  
   func layout() {
     backgroundColor = Palette.background(menu: menuItemType).color
     
     // Title
     let title = UILabel().then {
       addSubview($0)
-      $0.text = menuItemType.rawValue.uppercased()
-      $0.font = UIFont(name: "Baloo-Regular", size: 32)
+      $0.text = menuItemType.title.uppercased()
+      $0.font = UIFont(name: "Baloo-Regular", size: 28)
       $0.textColor = .white
       // Constraints
       $0.freeConstraints()
@@ -64,6 +63,7 @@ class BuyMenu: UIView, UITableViewDelegate, UITableViewDataSource {
       $0.dataSource = self
       $0.register(ForSaleItemCell.self, forCellReuseIdentifier: ForSaleItemCell.reuseID)
       $0.backgroundColor = Palette.transparent.color
+      $0.separatorColor = Palette.transparent.color
       $0.showsVerticalScrollIndicator = false
       addSubview($0)
       // Constraints
@@ -78,11 +78,11 @@ class BuyMenu: UIView, UITableViewDelegate, UITableViewDataSource {
   private func subtitle(for menuType: MenuItemType) -> String {
     switch menuType {
     case .industry:
-      return "CURRENT VALUE PER CRUSH: \(RealmController.user.valuePerCrush.clean)"
-    case .investment:
-      return "CURRENT KARMA PER SECOND: \(RealmController.user.karmaPerSecond.clean)"
+      return "CURRENT VALUE PER CRUSH: \(RealmController.user.valuePerCrush.noDecimals)"
     case .medium:
-      return "CURRENT MULTIPLIER PER CRUSH: \(RealmController.user.multiplierPerCrush.clean)x"
+      return "CURRENT MULTIPLIER PER CRUSH: \(RealmController.user.multiplierPerCrush.noDecimals)x"
+    case .investment:
+      return "CURRENT KARMA PER SECOND: \(RealmController.user.karmaPerSecond.noDecimals)"
     }
   }
   

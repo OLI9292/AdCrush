@@ -15,14 +15,28 @@ enum MenuItemType: String {
     ]
   }
   
+  var title: String {
+    switch self {
+    case .industry:
+      return "Upgrade Industry Type"
+    case .medium:
+      return "Upgrade Ad Type"
+    case .investment:
+      return  "Invest in the World"
+      
+      
+    }
+  }
+  
   func subtitle(_ value: String) -> String {
     switch self {
     case .industry:
-      return "Next: \(value)/Crush"
-    case .investment:
-      return "Next: \(value)/Multiplier"
+      return "Next: \(value) Karma / Crush"
     case .medium:
-      return "Next: \(value) K/s"
+      return "Next: \(value)X Multiplier"
+    case .investment:
+      return "Next: \(value) Karma / Second"
+      
     }
   }
 }

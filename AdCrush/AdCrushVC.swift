@@ -21,7 +21,9 @@ class AdCrushVC: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     
-    RealmController.seed()
+    //RealmController.seed()
+    
+    //RealmController.user.gain(karma: 500)
     
     setup()
     observe()
@@ -37,7 +39,7 @@ class AdCrushVC: UIViewController {
   }
   
   // MARK: - Setup
-
+  
   fileprivate func addGameScene() {
     spriteKitView = view as! SKView
     spriteKitView.ignoresSiblingOrder = false
@@ -76,13 +78,18 @@ class AdCrushVC: UIViewController {
     let frame = subviewFrame(SubviewType.buyMenu)
     let buyMenu = BuyMenu(menuItemType, frame: frame)
     view.insertSubview(buyMenu, belowSubview: bottomMenu)
-    UIView.animate(withDuration: 1, animations: {
+    UIView.animate(withDuration: 0.2, animations: {
       buyMenu.frame.origin.y -= self.height(percentageOf: 0.7)
     }, completion: nil)
   }
   
   private func closeMenu() {
-    view.subviews.filter({ $0 is BuyMenu }).first?.removeFromSuperview()
+    let openView = self.view.subviews.filter({ $0 is BuyMenu }).first
+    UIView.animate(withDuration: 0.2, animations: {
+      openView?.frame.origin.y += self.height(percentageOf: 1.0)
+    }, completion: { _ in
+      openView?.removeFromSuperview()
+    })
   }
   
   // MARK: - SubView Frames
