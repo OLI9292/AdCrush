@@ -31,6 +31,11 @@
 			<key>orderHint</key>
 			<integer>3</integer>
 		</dict>
+		<key>RxRealm.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>9</integer>
+		</dict>
 		<key>RxSwift.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
@@ -76,6 +81,11 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>4ABB7B0E7C1C71C34F2792075AF5D2F2</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>564A0C7823656760407CFCF2BD7A3AAE</key>
 		<dict>
 			<key>primary</key>
@@ -91,7 +101,32 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>693ECFB8E1D16427543574F2B6303047</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>6D921789927D0389F383FB0E7F3808D4</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>6E7E2BA06B6454434ADAB8A6B55BCF39</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>70E275B9714E7C92DA4F9BA9BAC9E080</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>72428583DA0E510A21FDCDBE1D502636</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>74130C9E7E7527874EA0ADA5D127C258</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -107,6 +142,16 @@
 			<true/>
 		</dict>
 		<key>9FAE1370283FB0989D1A83548B73F1D8</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>B79DC13BEE21DA689FCF790A7C173A9E</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>E2AF5719A70A066F9C0D0FDF97E24D71</key>
 		<dict>
 			<key>primary</key>
 			<true/>

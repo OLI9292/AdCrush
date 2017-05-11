@@ -25,7 +25,6 @@ class BuyMenu: UIView, UITableViewDelegate, UITableViewDataSource {
     layout()
   }
   
-  
   func layout() {
     backgroundColor = Palette.background(menu: menuItemType).color
     

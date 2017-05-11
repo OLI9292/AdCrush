@@ -47,7 +47,7 @@ class KarmaCounter: SKSpriteNode, GameElement {
   func updateNodes(score: String) {
     for (index, (new, _)) in zip(score.characters, lastScore.characters).enumerated().filter( { $1.0 != $1.1 }) {
       let label = self.children.flatMap({ $0.childNode(withName: "textLabel-\(index)") }).first as? SKLabelNode
-      UIView.animate(withDuration: 0.2, animations: { label?.text = String(new) })
+      UIView.animate(withDuration: 0.1, animations: { label?.text = String(new) })
     }
   }
   
@@ -59,7 +59,7 @@ class KarmaCounter: SKSpriteNode, GameElement {
   }
   
   func removeAllChildrenNodes() {
-    children.forEach { $0.run(SKAction.fadeOut(withDuration: 0.2)) }
+    children.forEach { $0.run(SKAction.fadeOut(withDuration: 0.1)) }
     children.forEach { $0.removeFromParent() }
   }
   
@@ -73,7 +73,7 @@ class KarmaCounter: SKSpriteNode, GameElement {
     karmaImage.position = CGPoint(x: 0, y: 0)
     
     background.addChild(karmaImage)
-    background.run(SKAction.fadeIn(withDuration: 0.2))
+    background.run(SKAction.fadeIn(withDuration: 0.1))
   }
   
   func addDigitNodes(for score: String) {
@@ -82,7 +82,7 @@ class KarmaCounter: SKSpriteNode, GameElement {
       addChild(background)
       let label = textLabelNode(for: character, atIndex: index)
       background.addChild(label)
-      background.run(SKAction.fadeIn(withDuration: 0.2))
+      background.run(SKAction.fadeIn(withDuration: 0.1))
     }
   }
   
