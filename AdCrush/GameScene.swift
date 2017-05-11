@@ -13,6 +13,7 @@ class GameScene: SKScene {
   
   let bag = DisposeBag()
   private var karmaCounter: KarmaCounter!
+  private var kpsCounter: KPSCounter!
 
   private var noAds: Bool {
     return children.filter({ $0 is Advertisement }).count == 0
@@ -22,6 +23,7 @@ class GameScene: SKScene {
     backgroundColor = Palette.backgroundMain.color
     
     addKarmaCounter()
+    addKarmaPerSecondCounter()
     addRandomAdvertisement()
   }
   
@@ -52,5 +54,10 @@ class GameScene: SKScene {
   private func addKarmaCounter() {
     karmaCounter = KarmaCounter(skScene: self)
     karmaCounter.layout()
+  }
+  
+  private func addKarmaPerSecondCounter() {
+    kpsCounter = KPSCounter(skScene: self)
+    kpsCounter.layout()
   }
 }

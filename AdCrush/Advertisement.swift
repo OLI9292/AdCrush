@@ -28,7 +28,6 @@ class Advertisement: SKSpriteNode, GameElement {
   func crush() {
     isBeingCrushed = true
     RealmController.user.gain(karma: RealmController.user.totalKarmaPerCrush)
-    print("\(RealmController.user.totalKarmaPerCrush) Karma Added")
     
     // audioNode?.play()
     let crush = Animation.crush.action

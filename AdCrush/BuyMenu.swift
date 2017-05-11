@@ -78,11 +78,11 @@ class BuyMenu: UIView, UITableViewDelegate, UITableViewDataSource {
   private func subtitle(for menuType: MenuItemType) -> String {
     switch menuType {
     case .industry:
-      return "CURRENT VALUE PER CRUSH: \(RealmController.user.valuePerCrush.clean)"
+      return "CURRENT VALUE PER CRUSH: \(RealmController.user.valuePerCrush.noDecimals)"
     case .medium:
-      return "CURRENT MULTIPLIER PER CRUSH: \(RealmController.user.multiplierPerCrush.clean)x"
+      return "CURRENT MULTIPLIER PER CRUSH: \(RealmController.user.multiplierPerCrush.noDecimals)x"
     case .investment:
-      return "CURRENT KARMA PER SECOND: \(RealmController.user.karmaPerSecond.clean)"
+      return "CURRENT KARMA PER SECOND: \(RealmController.user.karmaPerSecond.noDecimals)"
     }
   }
   

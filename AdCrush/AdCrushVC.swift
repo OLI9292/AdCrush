@@ -23,7 +23,7 @@ class AdCrushVC: UIViewController {
     
     RealmController.seed()
     
-    RealmController.user.gain(karma: 50)
+    RealmController.user.gain(karma: 500)
     
     setup()
     observe()

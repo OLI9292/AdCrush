@@ -16,10 +16,14 @@ func randomBetween(_ first: Float, and second: Float) -> Float {
 }
 
 extension Float {
+  var noDecimals: String {
+    return String(format: "%.0f", self)
+  }
+  
   var clean: String {
-    print(self)
     return self.truncatingRemainder(dividingBy: 1) == 0 ? String(format: "%.0f", self) : String(self)
   }
+
 }
 
 

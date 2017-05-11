@@ -11,7 +11,6 @@ class User: Object {
   
   dynamic var karmaPerSecond: Float = 0
   dynamic var karmaPerFrame: Float {
-    print("karma per frame is", Float(karmaPerSecond / 60.0))
     return Float(karmaPerSecond / 60.0)
   }
   

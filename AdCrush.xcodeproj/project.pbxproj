@@ -28,6 +28,7 @@
 		A78C554E1EB99BBC006D08AC /* Animation.swift in Sources */ = {isa = PBXBuildFile; fileRef = A78C554D1EB99BBC006D08AC /* Animation.swift */; };
 		A7C243261EB95D290005A5DE /* SpriteKit-Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7C243251EB95D290005A5DE /* SpriteKit-Extensions.swift */; };
 		A7C243281EB9698B0005A5DE /* AudioNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7C243271EB9698B0005A5DE /* AudioNode.swift */; };
+		B524D3FB1EC4C07400251020 /* KPSCounter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B524D3FA1EC4C07400251020 /* KPSCounter.swift */; };
 		B53403A81EB8ECFF003AA4B3 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = B53403A71EB8ECFF003AA4B3 /* GameScene.swift */; };
 		B53403CF1EB8F434003AA4B3 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B53403CE1EB8F434003AA4B3 /* Extensions.swift */; };
 		B53403D21EB8F6E0003AA4B3 /* Advertisement.swift in Sources */ = {isa = PBXBuildFile; fileRef = B53403D11EB8F6E0003AA4B3 /* Advertisement.swift */; };
@@ -59,6 +60,7 @@
 		A78C554D1EB99BBC006D08AC /* Animation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Animation.swift; sourceTree = "<group>"; };
 		A7C243251EB95D290005A5DE /* SpriteKit-Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "SpriteKit-Extensions.swift"; sourceTree = "<group>"; };
 		A7C243271EB9698B0005A5DE /* AudioNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AudioNode.swift; sourceTree = "<group>"; };
+		B524D3FA1EC4C07400251020 /* KPSCounter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KPSCounter.swift; sourceTree = "<group>"; };
 		B53403A71EB8ECFF003AA4B3 /* GameScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
 		B53403CE1EB8F434003AA4B3 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		B53403D11EB8F6E0003AA4B3 /* Advertisement.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Advertisement.swift; sourceTree = "<group>"; };
@@ -199,6 +201,7 @@
 				A7C243271EB9698B0005A5DE /* AudioNode.swift */,
 				A78C554D1EB99BBC006D08AC /* Animation.swift */,
 				A7577FE71EBF8489001BAB44 /* KarmaCounter.swift */,
+				B524D3FA1EC4C07400251020 /* KPSCounter.swift */,
 			);
 			name = Nodes;
 			sourceTree = "<group>";
@@ -339,6 +342,7 @@
 				A776BDAC1EBF98D80025ED65 /* User.swift in Sources */,
 				A700633D1EC01F3000678380 /* ForSaleItemCell.swift in Sources */,
 				B53403CF1EB8F434003AA4B3 /* Extensions.swift in Sources */,
+				B524D3FB1EC4C07400251020 /* KPSCounter.swift in Sources */,
 				A776BDB11EBFA85F0025ED65 /* BuyMenu.swift in Sources */,
 				A70063411EC0D5E400678380 /* RealmController.swift in Sources */,
 				A7C243261EB95D290005A5DE /* SpriteKit-Extensions.swift in Sources */,
