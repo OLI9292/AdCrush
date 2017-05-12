@@ -75,7 +75,7 @@ class Advertisement: SKSpriteNode, GameElement {
     
     let crush = CrushAnimation(velocity: velocity, direction: direction)
     let crushAction = crush.action
-    let wait = SKAction.wait(forDuration: 1.0)
+    let wait = SKAction.wait(forDuration: 1.5)
     let remove = SKAction.removeFromParent()
     let sequence = SKAction.sequence([crushAction, wait, remove])
     run(sequence)
@@ -113,5 +113,20 @@ class Advertisement: SKSpriteNode, GameElement {
     audioNode = AudioNode(soundString: "crumple\(4.asMaxRandom()).aif")
     skScene.addChild(self.audioNode!.sound)
   }
+  
+//  func backgroundNode() -> SKShapeNode {
+//    return SKShapeNode().then {
+//      $0.path = UIBezierPath(
+//        roundedRect: CGRect(
+//          x: -texture?.size().width / 2,
+//          y: -texture?.size().height / 2,
+//          width: texture?.size().width,
+//          height: texture?.size().height),
+//        cornerRadius: 5).cgPath
+//      $0.fillColor = .white
+//      $0.position = CGPoint(x: whiteBackgroundXPosition * locationIndex, y: 0)
+//      $0.alpha = 0
+//    }
+//  }
   
 }

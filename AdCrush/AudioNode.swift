@@ -8,6 +8,7 @@ import SpriteKit
 struct AudioNode {
   
   let sound: SKAudioNode
+  var name: String = "audioNode"
   
   init(soundString: String) {
     self.sound = SKAudioNode(fileNamed: soundString)
@@ -16,6 +17,10 @@ struct AudioNode {
   }
   
   func play() {
-    sound.run(SKAction.play())
+    let play = SKAction.play()
+    let wait = SKAction.wait(forDuration: 1)
+    let removeFromParent = SKAction.removeFromParent()
+    let sequence = SKAction.sequence([play, wait, removeFromParent])
+    self.sound.run(sequence)
   }
 }

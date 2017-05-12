@@ -163,29 +163,29 @@ extension DataLoader {
     
     forSaleItem = ForSaleItem(itemType: .investment, name: "Save the Whales")
     item = ItemLevel(price: 50, value: 0.6)
-    item2 = ItemLevel(price: 75, value: 0.6)
-    item3 = ItemLevel(price: 100, value: 0.6)
+    item2 = ItemLevel(price: 150, value: 0.6)
+    item3 = ItemLevel(price: 200, value: 0.6)
     [item, item2, item3].forEach { forSaleItem.levels.append($0) }
     items.append(forSaleItem)
     
     forSaleItem = ForSaleItem(itemType: .investment, name: "Cancer Research")
-    item = ItemLevel(price: 100, value: 1.2)
-    item2 = ItemLevel(price: 150, value: 1.2)
-    item3 = ItemLevel(price: 200, value: 1.2)
+    item = ItemLevel(price: 1000, value: 1.2)
+    item2 = ItemLevel(price: 1500, value: 1.2)
+    item3 = ItemLevel(price: 2000, value: 1.2)
     [item, item2, item3].forEach { forSaleItem.levels.append($0) }
     items.append(forSaleItem)
     
     forSaleItem = ForSaleItem(itemType: .investment, name: "Internet Freedom")
-    item = ItemLevel(price: 200, value: 2.4)
-    item2 = ItemLevel(price: 300, value: 2.4)
-    item3 = ItemLevel(price: 400, value: 2.4)
+    item = ItemLevel(price: 5000, value: 2.4)
+    item2 = ItemLevel(price: 7500, value: 2.4)
+    item3 = ItemLevel(price: 10000, value: 2.4)
     [item, item2, item3].forEach { forSaleItem.levels.append($0) }
     items.append(forSaleItem)
     
     forSaleItem = ForSaleItem(itemType: .investment, name: "Universal Basic Income")
-    item = ItemLevel(price: 400, value: 4.8)
-    item2 = ItemLevel(price: 600, value: 4.8)
-    item3 = ItemLevel(price: 800, value: 4.8)
+    item = ItemLevel(price: 10000, value: 4.8)
+    item2 = ItemLevel(price: 15000, value: 4.8)
+    item3 = ItemLevel(price: 20000, value: 4.8)
     [item, item2, item3].forEach { forSaleItem.levels.append($0) }
     items.append(forSaleItem)
     
