@@ -51,7 +51,7 @@ class Advertisement: SKSpriteNode, GameElement {
     self.physicsBody = SKPhysicsBody(rectangleOf: CGSize(width: self.size.width,
                                                          height: self.size.height))
     physicsBody?.affectedByGravity = false
-    physicsBody?.density = 0.7
+    physicsBody?.density = 0.4
     physicsBody?.collisionBitMask = 0
     
   }
@@ -65,14 +65,17 @@ class Advertisement: SKSpriteNode, GameElement {
     isBeingCrushed = true
     physicsBody?.affectedByGravity = true
   
-    let flyAway = SKAction.applyImpulse(CGVector(dx: velocity.x * 10, dy: velocity.y * 10), duration: 0.2)
+    let flyAway = SKAction.applyImpulse(CGVector(dx: velocity.x * 10, dy: velocity.y * -10), duration: 0.2)
+//    print("velocity.x * 10", velocity.x * 10)
+//    print("velocity.y * 10", velocity.y * 10)
+
     self.run(flyAway)
     
-    //audioNode?.play()
+    audioNode?.play()
     
     let crush = CrushAnimation(velocity: velocity, direction: direction)
     let crushAction = crush.action
-    let wait = SKAction.wait(forDuration: 1.0)
+    let wait = SKAction.wait(forDuration: 1.5)
     let remove = SKAction.removeFromParent()
     let sequence = SKAction.sequence([crushAction, wait, remove])
     run(sequence)
@@ -107,8 +110,9 @@ class Advertisement: SKSpriteNode, GameElement {
     size = CGSize(width: 300, height: 300)
     isUserInteractionEnabled = true
     skScene.insertChild(self, at: 0)
-    audioNode = AudioNode(soundString: "stomp.wav")
+    audioNode = AudioNode(soundString: "crumple\(4.asMaxRandom()).aif")
     skScene.addChild(self.audioNode!.sound)
   }
   
+
 }
