@@ -51,7 +51,7 @@ class Advertisement: SKSpriteNode, GameElement {
     self.physicsBody = SKPhysicsBody(rectangleOf: CGSize(width: self.size.width,
                                                          height: self.size.height))
     physicsBody?.affectedByGravity = false
-    physicsBody?.density = 0.7
+    physicsBody?.density = 0.4
     physicsBody?.collisionBitMask = 0
     
   }
@@ -63,13 +63,13 @@ class Advertisement: SKSpriteNode, GameElement {
     RealmController.user.gain(karma: RealmController.user.totalKarmaPerCrush)
    
     isBeingCrushed = true
-    //physicsBody?.affectedByGravity = true
+    physicsBody?.affectedByGravity = true
   
     let flyAway = SKAction.applyImpulse(CGVector(dx: velocity.x * 10, dy: velocity.y * -10), duration: 0.2)
-    print("velocity.x * 10", velocity.x * 10)
-    print("velocity.y * 10", velocity.y * 10)
+//    print("velocity.x * 10", velocity.x * 10)
+//    print("velocity.y * 10", velocity.y * 10)
 
-    //self.run(flyAway)
+    self.run(flyAway)
     
     audioNode?.play()
     
