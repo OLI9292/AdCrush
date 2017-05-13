@@ -35,7 +35,6 @@ class GameScene: SKScene {
   }
   
   override func update(_ currentTime: TimeInterval) {
-    print("self.children.count", self.children.count)
     gainKarmaPerFrame()
     if noAds { addRandomAdvertisement()}
   }

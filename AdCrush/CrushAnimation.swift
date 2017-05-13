@@ -61,22 +61,18 @@ class CrushAnimation {
   
   private func determineVectorShift() -> (float2) -> float2 {
     
-    // works
     func shiftDown(_ vector: float2) -> float2 {
       return float2(wiggle(value: vector.x), shrinkAndWiggle(value: vector.y, dampen: false))
     }
     
-    // doesn't work yet
     func shiftUp(_ vector: float2) -> float2 {
-      return float2(wiggle(value: vector.x), shrinkAndWiggle(value: vector.y, dampen: false))
+      return float2(wiggle(value: vector.x), expandAndWiggle(value: vector.y, dampen: false))
     }
     
-    // doesn't work yet
     func shiftRight(_ vector: float2) -> float2 {
-      return float2(shrinkAndWiggle(value: vector.x, dampen: false), wiggle(value: vector.y))
+      return float2(expandAndWiggle(value: vector.x, dampen: false), wiggle(value: vector.y))
     }
     
-    // works
     func shiftLeft(_ vector: float2) -> float2 {
       return float2(shrinkAndWiggle(value: vector.x, dampen: false), wiggle(value: vector.y))
     }
@@ -111,12 +107,26 @@ class CrushAnimation {
     return value * 0.9
   }
   
+  // needs improvement
+  private func expand(value: Float) -> Float {
+    if value == 0 {
+      return 0.10
+    } else {
+      guard value * 1.25 <= 1 else { return 1 }
+      return value * 1.25
+    }
+  }
+  
   private func wiggle(value: Float, dampen: Bool = false) -> Float {
     return value + randomBetween(-0.02, and: 0.02) * (dampen ? value : 1)
   }
   
   private func shrinkAndWiggle(value: Float, dampen: Bool = false) -> Float {
     return wiggle(value: shrink(value: value), dampen: dampen)
+  }
+  
+  private func expandAndWiggle(value: Float, dampen: Bool = false) -> Float {
+    return wiggle(value: expand(value: value), dampen: dampen)
   }
   
 }

@@ -63,13 +63,13 @@ class Advertisement: SKSpriteNode, GameElement {
     RealmController.user.gain(karma: RealmController.user.totalKarmaPerCrush)
    
     isBeingCrushed = true
-    physicsBody?.affectedByGravity = true
+    //physicsBody?.affectedByGravity = true
   
     let flyAway = SKAction.applyImpulse(CGVector(dx: velocity.x * 10, dy: velocity.y * -10), duration: 0.2)
     print("velocity.x * 10", velocity.x * 10)
     print("velocity.y * 10", velocity.y * 10)
 
-    self.run(flyAway)
+    //self.run(flyAway)
     
     audioNode?.play()
     
@@ -114,19 +114,5 @@ class Advertisement: SKSpriteNode, GameElement {
     skScene.addChild(self.audioNode!.sound)
   }
   
-//  func backgroundNode() -> SKShapeNode {
-//    return SKShapeNode().then {
-//      $0.path = UIBezierPath(
-//        roundedRect: CGRect(
-//          x: -texture?.size().width / 2,
-//          y: -texture?.size().height / 2,
-//          width: texture?.size().width,
-//          height: texture?.size().height),
-//        cornerRadius: 5).cgPath
-//      $0.fillColor = .white
-//      $0.position = CGPoint(x: whiteBackgroundXPosition * locationIndex, y: 0)
-//      $0.alpha = 0
-//    }
-//  }
-  
+
 }
