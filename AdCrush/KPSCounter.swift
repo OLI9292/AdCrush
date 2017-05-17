@@ -42,7 +42,7 @@ class KPSCounter: SKLabelNode, GameElement {
   
   func setup() {
     fontSize = 18
-    fontName = "Baloo-Regular"
+    fontName = "VT323-Regular"
     fontColor = Palette.white.color
     position = CGPoint(x: skScene.size.width / 2,  y: skScene.size.height / 1.2 )
   }

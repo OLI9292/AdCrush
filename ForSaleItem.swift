@@ -19,12 +19,9 @@ class ForSaleItem: Object {
     return levels.sorted().first(where: { !$0.purchased })
   }
   
-  var currentLevelText: String {
-    guard
-      let level = nextLevel,
-      let levelNumber = levels.sorted().index(of: level)
-      else { return "\(levels.count)/\(levels.count)" }
-    return "\(levelNumber)/\(levels.count)"
+  var currentLevelString: String {
+    guard let nextLevel = nextLevel, let index = levels.sorted().index(of: nextLevel) else { return "" }
+    return "#\(index)"
   }
   
   var isComplete: Bool {

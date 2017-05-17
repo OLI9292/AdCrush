@@ -19,21 +19,21 @@ class BuyMenu: UIView, UITableViewDelegate, UITableViewDataSource {
   
   init(_ menuItemType: MenuItemType, frame: CGRect) {
     self.menuItemType = menuItemType
-    self.items = GameController.shared.forSaleItems(for: self.menuItemType)
+    self.items = GameController.shared.forSaleItems(for: menuItemType)
     super.init(frame: frame)
     
     layout()
   }
   
   func layout() {
-    backgroundColor = Palette.background(menu: menuItemType).color
+    
+    backgroundColor = Palette.lightGrey.color
     
     // Title
     let title = UILabel().then {
       addSubview($0)
       $0.text = menuItemType.title.uppercased()
-      $0.font = UIFont(name: "Baloo-Regular", size: 28)
-      $0.textColor = .white
+      $0.font = UIFont(name: "VT323-Regular", size: 28)
       // Constraints
       $0.freeConstraints()
       $0.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
@@ -43,7 +43,7 @@ class BuyMenu: UIView, UITableViewDelegate, UITableViewDataSource {
     // Current Value Subtitle
     _ = subtitleLabel.then {
       addSubview($0)
-      $0.font = UIFont(name: "Baloo-Regular", size: 14)
+      $0.font = UIFont(name: "VT323-Regular", size: 14)
       $0.textColor = Palette.darkGrey.color
       // Constraints
       $0.freeConstraints()
@@ -53,7 +53,7 @@ class BuyMenu: UIView, UITableViewDelegate, UITableViewDataSource {
     
     Observable.from(object: RealmController.user)
       .subscribe(onNext: { user in
-        self.subtitleLabel.text = self.subtitle(for: self.menuItemType)
+        //self.subtitleLabel.text = self.subtitle(for: self.menuItemType)
       })
       .addDisposableTo(bag)
     
@@ -74,7 +74,7 @@ class BuyMenu: UIView, UITableViewDelegate, UITableViewDataSource {
       $0.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
     }
   }
-  
+/*
   private func subtitle(for menuType: MenuItemType) -> String {
     switch menuType {
     case .industry:
@@ -85,7 +85,7 @@ class BuyMenu: UIView, UITableViewDelegate, UITableViewDataSource {
       return "CURRENT KARMA PER SECOND: \(RealmController.user.karmaPerSecond.noDecimals)"
     }
   }
-  
+*/
   required init?(coder aDecoder: NSCoder) {
     fatalError("init(coder:) has not been implemented")
   }

@@ -5,6 +5,7 @@
 import UIKit
 import RxSwift
 import SpriteKit
+import Then
 
 class AdCrushVC: UIViewController {
   
@@ -75,20 +76,12 @@ class AdCrushVC: UIViewController {
   private func open(_ menuItemType: MenuItemType) {
     closeMenu()
     let frame = subviewFrame(SubviewType.buyMenu)
-    let buyMenu = BuyMenu(menuItemType, frame: frame)
-    view.insertSubview(buyMenu, belowSubview: bottomMenu)
-    UIView.animate(withDuration: 0.2, animations: {
-      buyMenu.frame.origin.y -= self.height(percentageOf: 0.7)
-    }, completion: nil)
+    let menu = BuyMenu(menuItemType, frame: frame)
+    view.addSubview(menu)
   }
-  
+    
   private func closeMenu() {
-    let openView = self.view.subviews.filter({ $0 is BuyMenu }).first
-    UIView.animate(withDuration: 0.2, animations: {
-      openView?.frame.origin.y += self.height(percentageOf: 1.0)
-    }, completion: { _ in
-      openView?.removeFromSuperview()
-    })
+    view.subviews.filter({ $0 is BuyMenu }).first?.removeFromSuperview()
   }
   
   // MARK: - SubView Frames
@@ -103,9 +96,9 @@ class AdCrushVC: UIViewController {
         height: height(percentageOf: 0.1))
     case .buyMenu:
       return CGRect(
-        x: view.frame.origin.x,
-        y: view.frame.size.height - height(percentageOf: 0.1),
-        width: view.frame.size.width,
+        x: width(percentageOf: 0.1),
+        y: height(percentageOf: 0.15),
+        width: width(percentageOf: 0.8),
         height: height(percentageOf: 0.7))
     }
   }

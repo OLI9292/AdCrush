@@ -7,7 +7,7 @@ import RealmSwift
 
 class User: Object {
   
-  dynamic var karma: Float = 0
+  dynamic var karma: Float = 10000
   
   dynamic var karmaPerSecond: Float = 0
   dynamic var karmaPerFrame: Float {
@@ -29,12 +29,8 @@ class User: Object {
     RealmController.itemBought(item)
 
     switch item.itemType {
-    case .industry:
-      RealmController.increase(valuePerCrush: value)
-    case .investment:
-      RealmController.increase(karmaPerSecond: value)
-    case .medium:
-      RealmController.increase(multiplierPerCrush: value)
+    default:
+      print("bought something")
     }
   }
   

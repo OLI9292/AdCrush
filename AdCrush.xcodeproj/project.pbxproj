@@ -27,6 +27,7 @@
 		A78AA2EB1EB7CB3E00D00A30 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A78AA2EA1EB7CB3E00D00A30 /* Assets.xcassets */; };
 		A7C243261EB95D290005A5DE /* SpriteKit-Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7C243251EB95D290005A5DE /* SpriteKit-Extensions.swift */; };
 		A7C243281EB9698B0005A5DE /* AudioNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7C243271EB9698B0005A5DE /* AudioNode.swift */; };
+		A7C772691ECCB4DA00DED8EF /* VT323-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A7C772681ECCB4DA00DED8EF /* VT323-Regular.ttf */; };
 		B524D3FB1EC4C07400251020 /* KPSCounter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B524D3FA1EC4C07400251020 /* KPSCounter.swift */; };
 		B53403A81EB8ECFF003AA4B3 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = B53403A71EB8ECFF003AA4B3 /* GameScene.swift */; };
 		B53403CF1EB8F434003AA4B3 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B53403CE1EB8F434003AA4B3 /* Extensions.swift */; };
@@ -63,6 +64,7 @@
 		A78AA2EF1EB7CB3E00D00A30 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A7C243251EB95D290005A5DE /* SpriteKit-Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "SpriteKit-Extensions.swift"; sourceTree = "<group>"; };
 		A7C243271EB9698B0005A5DE /* AudioNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AudioNode.swift; sourceTree = "<group>"; };
+		A7C772681ECCB4DA00DED8EF /* VT323-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "VT323-Regular.ttf"; path = "Assets.xcassets/VT323-Regular.dataset/VT323-Regular.ttf"; sourceTree = "<group>"; };
 		B524D3FA1EC4C07400251020 /* KPSCounter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KPSCounter.swift; sourceTree = "<group>"; };
 		B53403A71EB8ECFF003AA4B3 /* GameScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
 		B53403CE1EB8F434003AA4B3 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
@@ -166,6 +168,7 @@
 				A78AA2E31EB7CB3E00D00A30 /* AppDelegate.swift */,
 				A78AA2EA1EB7CB3E00D00A30 /* Assets.xcassets */,
 				A70063371EC007DC00678380 /* Baloo-Regular.ttf */,
+				A7C772681ECCB4DA00DED8EF /* VT323-Regular.ttf */,
 				A7577FDC1EBF79D9001BAB44 /* Controllers */,
 				B53403CD1EB8F42A003AA4B3 /* Extensions */,
 				A776BDAD1EBF997D0025ED65 /* Library */,
@@ -279,6 +282,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A7C772691ECCB4DA00DED8EF /* VT323-Regular.ttf in Resources */,
 				B537E24C1EC5474300699FFD /* crumple1.aif in Resources */,
 				A70063391EC0096800678380 /* Baloo-Regular.ttf in Resources */,
 				B537E24B1EC5474300699FFD /* crumple2.aif in Resources */,

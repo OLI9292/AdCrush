@@ -10,11 +10,11 @@ final class GameController {
   
   static let shared = GameController()
   
+  // Realm objects
+  var saleItems = RealmController.saleItems
   var user = RealmController.user
   
   var openMenu: Variable<MenuItemType?> = Variable(nil)
-  
-  var saleItems = RealmController.saleItems
   
   private init() {}
 

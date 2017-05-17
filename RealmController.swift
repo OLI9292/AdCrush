@@ -14,19 +14,17 @@ final class RealmController {
   private init() {}
   
   static var user: User {
-    return shared.db.objects(User.self).first ?? shared.createUser()
+    return shared.db.objects(User.self).first!
   }
   
   static var saleItems: Results<ForSaleItem> {
-    let _items = shared.db.objects(ForSaleItem.self)
-    return _items.isEmpty ? shared.loadforSaleItems() : _items
+    return shared.db.objects(ForSaleItem.self)
   }
   
-  private func createUser() -> User {
+  private func createUser() {
     try! db.write {
       db.add(User())
     }
-    return RealmController.user
   }
   
   static func gain(karma: Float) {
@@ -83,10 +81,26 @@ final class RealmController {
   // Seed
   
   static func seed() {
-    try! shared.db.write {
-      shared.db.delete(RealmController.user)
+    // Delete
+    deleteUser()
+    deleteForSaleItems()
+    // Load
+    RealmController.save(items: DataLoader.forSaleItemsSeed)
+    RealmController.shared.createUser()
+  }
+  
+  // Delete
+  
+  static func deleteUser() {
+    if let user = shared.db.objects(User.self).first {
+      try! shared.db.write {
+        shared.db.delete(user)
+      }
     }
-    let items = RealmController.saleItems
+  }
+  
+  static func deleteForSaleItems() {
+    let items = shared.db.objects(ForSaleItem.self)
     try! shared.db.write {
       shared.db.delete(items)
     }
@@ -98,32 +112,32 @@ final class RealmController {
 private typealias DataLoader = RealmController
 extension DataLoader {
   
-  func loadforSaleItems() -> Results<ForSaleItem> {
+  static var forSaleItemsSeed: [ForSaleItem] {
     
     var items = [ForSaleItem]()
-    
-    var forSaleItem = ForSaleItem(itemType: .industry, name: "Food")
+
+    var forSaleItem = ForSaleItem(itemType: .invest, name: "Food")
     var item = ItemLevel(price: 50, value: 2)
     var item2 = ItemLevel(price: 100, value: 3)
     var item3 = ItemLevel(price: 150, value: 4)
     [item, item2, item3].forEach { forSaleItem.levels.append($0) }
     items.append(forSaleItem)
     
-    forSaleItem = ForSaleItem(itemType: .industry, name: "Cars")
+    forSaleItem = ForSaleItem(itemType: .invest, name: "Cars")
     item = ItemLevel(price: 1000, value: 5)
     item2 = ItemLevel(price: 1500, value: 7)
     item3 = ItemLevel(price: 2000, value: 10)
     [item, item2, item3].forEach { forSaleItem.levels.append($0) }
     items.append(forSaleItem)
     
-    forSaleItem = ForSaleItem(itemType: .industry, name: "Drugs")
+    forSaleItem = ForSaleItem(itemType: .invest, name: "Drugs")
     item = ItemLevel(price: 5000, value: 15)
     item2 = ItemLevel(price: 10000, value: 20)
     item3 = ItemLevel(price: 25000, value: 25)
     [item, item2, item3].forEach { forSaleItem.levels.append($0) }
     items.append(forSaleItem)
     
-    forSaleItem = ForSaleItem(itemType: .industry, name: "Cigarettes")
+    forSaleItem = ForSaleItem(itemType: .invest, name: "Cigarettes")
     item = ItemLevel(price: 50000, value: 50)
     item2 = ItemLevel(price: 100000, value: 75)
     item3 = ItemLevel(price: 150000, value: 100)
@@ -131,28 +145,28 @@ extension DataLoader {
     items.append(forSaleItem)
     
     
-    forSaleItem = ForSaleItem(itemType: .medium, name: "Phone")
+    forSaleItem = ForSaleItem(itemType: .recruits, name: "Phone")
     item = ItemLevel(price: 50, value: 2)
     item2 = ItemLevel(price: 100, value: 3)
     item3 = ItemLevel(price: 150, value: 4)
     [item, item2, item3].forEach { forSaleItem.levels.append($0) }
     items.append(forSaleItem)
     
-    forSaleItem = ForSaleItem(itemType: .medium, name: "TV")
+    forSaleItem = ForSaleItem(itemType: .recruits, name: "TV")
     item = ItemLevel(price: 1000, value: 5)
     item2 = ItemLevel(price: 1500, value: 7)
     item3 = ItemLevel(price: 2000, value: 10)
     [item, item2, item3].forEach { forSaleItem.levels.append($0) }
     items.append(forSaleItem)
     
-    forSaleItem = ForSaleItem(itemType: .medium, name: "Subway")
+    forSaleItem = ForSaleItem(itemType: .recruits, name: "Subway")
     item = ItemLevel(price: 5000, value: 100)
     item2 = ItemLevel(price: 10000, value: 125)
     item3 = ItemLevel(price: 25000, value: 150)
     [item, item2, item3].forEach { forSaleItem.levels.append($0) }
     items.append(forSaleItem)
     
-    forSaleItem = ForSaleItem(itemType: .medium, name: "Highway")
+    forSaleItem = ForSaleItem(itemType: .recruits, name: "Highway")
     item = ItemLevel(price: 50000, value: 500)
     item2 = ItemLevel(price: 100000, value: 1000)
     item3 = ItemLevel(price: 150000, value: 1500)
@@ -161,35 +175,34 @@ extension DataLoader {
     
     
     
-    forSaleItem = ForSaleItem(itemType: .investment, name: "Save the Whales")
+    forSaleItem = ForSaleItem(itemType: .gear, name: "Save the Whales")
     item = ItemLevel(price: 50, value: 0.6)
     item2 = ItemLevel(price: 150, value: 0.6)
     item3 = ItemLevel(price: 200, value: 0.6)
     [item, item2, item3].forEach { forSaleItem.levels.append($0) }
     items.append(forSaleItem)
     
-    forSaleItem = ForSaleItem(itemType: .investment, name: "Cancer Research")
+    forSaleItem = ForSaleItem(itemType: .gear, name: "Cancer Research")
     item = ItemLevel(price: 1000, value: 1.2)
     item2 = ItemLevel(price: 1500, value: 1.2)
     item3 = ItemLevel(price: 2000, value: 1.2)
     [item, item2, item3].forEach { forSaleItem.levels.append($0) }
     items.append(forSaleItem)
     
-    forSaleItem = ForSaleItem(itemType: .investment, name: "Internet Freedom")
+    forSaleItem = ForSaleItem(itemType: .gear, name: "Internet Freedom")
     item = ItemLevel(price: 5000, value: 2.4)
     item2 = ItemLevel(price: 7500, value: 2.4)
     item3 = ItemLevel(price: 10000, value: 2.4)
     [item, item2, item3].forEach { forSaleItem.levels.append($0) }
     items.append(forSaleItem)
     
-    forSaleItem = ForSaleItem(itemType: .investment, name: "Universal Basic Income")
+    forSaleItem = ForSaleItem(itemType: .gear, name: "Universal Basic Income")
     item = ItemLevel(price: 10000, value: 4.8)
     item2 = ItemLevel(price: 15000, value: 4.8)
     item3 = ItemLevel(price: 20000, value: 4.8)
     [item, item2, item3].forEach { forSaleItem.levels.append($0) }
     items.append(forSaleItem)
-    
-    RealmController.save(items: items)
-    return RealmController.saleItems
+
+    return items
   }
 }

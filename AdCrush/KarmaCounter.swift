@@ -69,13 +69,12 @@ class KarmaCounter: SKSpriteNode, GameElement {
       $0.name = "textLabel-\(index)"
       $0.text = String(character)
       $0.verticalAlignmentMode = .center
-      $0.fontName = "Baloo-Regular"
+      $0.fontName = "VT323-Regular"
       $0.fontColor = Palette.darkGrey.color
       $0.text = String(character)
     }
   }
 
-  
   func addKarmaIcon() {
     let background = whiteBackgroundNode(at: 0, size: backgroundSize)
     addChild(background)

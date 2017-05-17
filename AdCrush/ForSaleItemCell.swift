@@ -10,6 +10,7 @@ class ForSaleItemCell: UITableViewCell {
   
   let bag = DisposeBag()
   
+  let background = UIView()
   let itemImageView = UIImageView()
   let nameLabel = UILabel()
   let valueLabel = UILabel()
@@ -32,7 +33,7 @@ class ForSaleItemCell: UITableViewCell {
   }
   
   var views: [UIView] {
-    return [itemImageView, nameLabel, valueLabel, priceLabel, isCompleteImageView, currentLevelLabel]
+    return [background, itemImageView, nameLabel, valueLabel, priceLabel, isCompleteImageView, currentLevelLabel]
   }
   
   static var reuseID = "forSaleItem"
@@ -46,43 +47,47 @@ class ForSaleItemCell: UITableViewCell {
   func setup() {
     guard let item = item else { return }
     
-    // MARK: - Layout
+    backgroundColor = Palette.lightGrey.color
     
-    backgroundColor = Palette.transparent.color
+    // MARK: - Layout
     
     views.forEach { contentView.addSubview($0) }
     views.forEach { $0.freeConstraints() }
     
-    _ = itemImageView.then {
-      $0.image = UIImage(named: item.name.lowercased())
+    _ = background.then {
+      $0.backgroundColor = Palette.lighterGrey.color
       // Anchors
+      $0.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
       $0.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
-      $0.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.5).isActive = true
-      $0.widthAnchor.constraint(equalTo: itemImageView.heightAnchor).isActive = true
-      $0.leadingAnchor.constraint(equalTo: leadingAnchor, constant: width(percentageOf: 0.1)).isActive = true
+      $0.heightAnchor.constraint(equalToConstant: height(percentageOf: 0.8)).isActive = true
+      $0.widthAnchor.constraint(equalToConstant: width(percentageOf: 0.9)).isActive = true
     }
     
+    /*_ = itemImageView.then {
+      $0.image = UIImage(named: item.name.lowercased())
+    }*/
+    
     _ = nameLabel.then {
-      $0.text = item.name
-      $0.font = UIFont(name: "Baloo-Regular", size: 20)
+      $0.text = item.name.uppercased()
+      $0.font = UIFont(name: "VT323-Regular", size: 24)
       // Anchors
-      $0.leadingAnchor.constraint(equalTo: itemImageView.trailingAnchor, constant: 20).isActive = true
-      $0.topAnchor.constraint(equalTo: topAnchor, constant: 10).isActive = true
+      $0.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
+      $0.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
     }
     
     _ = valueLabel.then {
-      $0.font = UIFont(name: "Baloo-Regular", size: 12)
+      $0.font = UIFont(name: "VT323-Regular", size: 14)
       // Anchors
-      $0.leadingAnchor.constraint(equalTo: nameLabel.leadingAnchor).isActive = true
-      $0.topAnchor.constraint(equalTo: nameLabel.bottomAnchor).isActive = true
+      $0.centerYAnchor.constraint(equalTo: centerYAnchor, constant: -height(percentageOf: 0.1)).isActive = true
+      $0.leadingAnchor.constraint(equalTo: trailingAnchor, constant: -width(percentageOf: 0.3)).isActive = true
     }
     
     _ = priceLabel.then {
-      $0.font = UIFont(name: "Baloo-Regular", size: 24)
+      $0.font = UIFont(name: "VT323-Regular", size: 14)
       // Anchors
-      $0.textAlignment = .center
-      $0.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
-      $0.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -width(percentageOf: 0.1)).isActive = true
+      $0.centerYAnchor.constraint(equalTo: centerYAnchor, constant: height(percentageOf: 0.1)).isActive = true
+      $0.leadingAnchor.constraint(equalTo: trailingAnchor, constant: -width(percentageOf: 0.3)).isActive = true
+      $0.trailingAnchor.constraint(equalTo: trailingAnchor).isActive = true
     }
     
     _ = isCompleteImageView.then {
@@ -90,17 +95,17 @@ class ForSaleItemCell: UITableViewCell {
       $0.tintColor = Palette.white.color
       $0.isHidden = true
       // Anchors
-      $0.centerXAnchor.constraint(equalTo: self.centerXAnchor, constant: self.frame.width / 3).isActive = true
-      $0.centerYAnchor.constraint(equalTo: priceLabel.centerYAnchor).isActive = true
+      $0.centerXAnchor.constraint(equalTo: priceLabel.centerXAnchor).isActive = true
+      $0.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
       $0.heightAnchor.constraint(equalToConstant: 40).isActive = true
       $0.widthAnchor.constraint(equalTo: isCompleteImageView.heightAnchor).isActive = true
     }
     
     _ = currentLevelLabel.then {
-      $0.font = UIFont(name: "Baloo-Regular", size: 20)
+      $0.font = UIFont(name: "VT323-Regular", size: 24)
       // Anchors
-      $0.centerXAnchor.constraint(equalTo: itemImageView.leadingAnchor).isActive = true
-      $0.centerYAnchor.constraint(equalTo: itemImageView.bottomAnchor).isActive = true
+      $0.leadingAnchor.constraint(equalTo: background.leadingAnchor, constant: 20).isActive = true
+      $0.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
     }
     
     // MARK: - Observe
@@ -117,14 +122,14 @@ class ForSaleItemCell: UITableViewCell {
     // Observe item level for price and level text
     Observable.collection(from: item.levels)
       .subscribe(onNext: { _ in
-        self.currentLevelLabel.text = item.currentLevelText
+        self.currentLevelLabel.text = item.currentLevelString
         if item.isComplete {
           self.priceLabel.text = ""
           self.valueLabel.text = ""
           self.isCompleteImageView.isHidden = false
         } else {
-          self.priceLabel.text = self.price.clean
-          self.valueLabel.text = item.itemType.subtitle(self.value.clean)
+          self.priceLabel.text = "Cost: \(self.price.clean)"
+          self.valueLabel.text = "Value: \(item.itemType.subTitle(for: self.value.clean))"
         }
       })
       .addDisposableTo(bag)
@@ -133,7 +138,7 @@ class ForSaleItemCell: UITableViewCell {
     Observable.from(object: RealmController.user, properties: ["karma"])
       .subscribe(onNext: { user in
         self.priceLabel.isUserInteractionEnabled = user.karma > self.price
-        self.priceLabel.textColor = user.karma > self.price ? .white : Palette.darkGrey.color
+        self.priceLabel.textColor = user.karma > self.price ? .black : .red
       })
       .addDisposableTo(bag)
   }

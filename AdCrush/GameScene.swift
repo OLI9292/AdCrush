@@ -2,27 +2,22 @@
 /// GameScene.swift
 ///
 
-import RxCocoa
-import RxSwift
-import RxRealm
-import RealmSwift
 import SpriteKit
-import Then
 
 class GameScene: SKScene {
   
-  let bag = DisposeBag()
   private var karmaCounter: KarmaCounter!
   private var kpsCounter: KPSCounter!
 
   private var noAds: Bool {
-    let ads = children.flatMap{ $0 as? Advertisement }
-    return ads.filter{ $0.isBeingCrushed == false }.count == 0
+    return children
+      .flatMap { $0 as? Advertisement }
+      .filter { !$0.isBeingCrushed }
+      .count == 0
   }
   
   private func setup() {
-    backgroundColor = Palette.backgroundMain.color
-    
+    backgroundColor = .white
     addKarmaCounter()
     addKarmaPerSecondCounter()
     addRandomAdvertisement()
@@ -48,17 +43,14 @@ class GameScene: SKScene {
   // MARK: - Setup
   
   private func addRandomAdvertisement() {
-    let advertisement = Advertisement(skScene: self)
-    advertisement.layout()
+    Advertisement(skScene: self).layout()
   }
   
   private func addKarmaCounter() {
-    karmaCounter = KarmaCounter(skScene: self)
-    karmaCounter.layout()
+    KarmaCounter(skScene: self).layout()
   }
   
   private func addKarmaPerSecondCounter() {
-    kpsCounter = KPSCounter(skScene: self)
-    kpsCounter.layout()
+    KPSCounter(skScene: self).layout()
   }
 }

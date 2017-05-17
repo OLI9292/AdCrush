@@ -5,38 +5,29 @@
 import UIKit
 
 enum MenuItemType: String {
-  case investment, industry, medium
+  case map, invest, recruits, gear, karmaPool
   
-  static var menuItems: [(type: MenuItemType, image: UIImage)] {
-    return [
-      (.industry, #imageLiteral(resourceName: "industry")),
-      (.medium, #imageLiteral(resourceName: "medium")),
-      (.investment, #imageLiteral(resourceName: "investment"))
-    ]
-  }
+  static var menuItems: [MenuItemType] = [.map, .invest, .recruits, .gear, .karmaPool]
   
   var title: String {
     switch self {
-    case .industry:
-      return "Upgrade Industry Type"
-    case .medium:
-      return "Upgrade Ad Type"
-    case .investment:
-      return  "Invest in the World"
-      
-      
+    case .map, .invest, .recruits, .gear:
+      return rawValue.uppercased()
+    case .karmaPool:
+      return "POOL"
     }
   }
   
-  func subtitle(_ value: String) -> String {
+  func subTitle(for value: String) -> String {
     switch self {
-    case .industry:
-      return "Next: \(value) Karma / Crush"
-    case .medium:
-      return "Next: \(value)X Multiplier"
-    case .investment:
-      return "Next: \(value) Karma / Second"
-      
+    case .invest:
+      return "x\(value)"
+    case .recruits:
+      return "+\(value)"
+    case .gear:
+      return "+\(value)"
+    default:
+      return ""
     }
   }
 }

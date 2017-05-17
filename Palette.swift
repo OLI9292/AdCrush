@@ -18,11 +18,11 @@ enum Palette {
   white,
   // Custom
   darkGrey,
+  lightGrey,
+  lighterGrey,
   // Transparent
-  transparent,
+  transparent
   // Background
-  backgroundMain,
-  background(menu: MenuItemType)
   
   var color: UIColor {
     switch self {
@@ -43,18 +43,13 @@ enum Palette {
     // Custom
     case .darkGrey:
       return UIColor(hex: 0x4A4A4A)
+    case .lightGrey:
+      return UIColor(hex: 0xC4C4C4)
+    case .lighterGrey:
+      return UIColor(hex: 0xE0E0E0)
     // Transparent
     case .transparent:
       return UIColor(white: 1, alpha: 0.0)
-    // Background
-    case .backgroundMain:
-      return UIColor(hex: 0xFFC1C1)
-    case .background(menu: .industry):
-      return UIColor(hex: 0x56CCF2)
-    case .background(menu: .investment):
-      return UIColor(hex: 0x6FCF97)
-    case .background(menu: .medium):
-      return UIColor(hex: 0xFFD693)
     }
   }
 }
