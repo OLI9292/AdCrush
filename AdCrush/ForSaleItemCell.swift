@@ -88,6 +88,7 @@ class ForSaleItemCell: UITableViewCell {
     
     _ = valueLabel.then {
       $0.font = UIFont(name: "VT323-Regular", size: 18)
+      $0.textAlignment = .right
       // Anchors
       $0.centerYAnchor.constraint(equalTo: centerYAnchor, constant: -height(percentageOf: 0.1)).isActive = true
       $0.leadingAnchor.constraint(equalTo: trailingAnchor, constant: -width(percentageOf: 0.25)).isActive = true
@@ -96,9 +97,9 @@ class ForSaleItemCell: UITableViewCell {
     
     _ = priceLabel.then {
       $0.font = UIFont(name: "VT323-Regular", size: 18)
+      $0.textAlignment = .right
       // Anchors
       $0.centerYAnchor.constraint(equalTo: centerYAnchor, constant: height(percentageOf: 0.1)).isActive = true
-      $0.leadingAnchor.constraint(equalTo: trailingAnchor, constant: -width(percentageOf: 0.25)).isActive = true
       $0.leadingAnchor.constraint(equalTo: trailingAnchor, constant: -width(percentageOf: 0.25)).isActive = true
     }
     

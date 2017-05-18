@@ -18,6 +18,8 @@ class GameScene: SKScene {
   
   private func setup() {
     backgroundColor = .white
+   // addLocationLabel()
+    addRecruitCounter()
     addKarmaCounter()
     addKarmaPerSecondCounter()
     addRandomAdvertisement()
@@ -41,6 +43,14 @@ class GameScene: SKScene {
   }
 
   // MARK: - Setup
+  
+//  private func addLocationLabel() {
+//    LocationLabel(skScene: self).layout()
+//  }
+//  
+  private func addRecruitCounter() {
+    RecruitCounter(skScene: self).layout()
+  }
   
   private func addRandomAdvertisement() {
     Advertisement(skScene: self).layout()
