@@ -67,11 +67,22 @@ class ForSaleItemCell: UITableViewCell {
       $0.image = UIImage(named: item.name.lowercased())
     }*/
     
-    _ = nameLabel.then {
-      $0.text = item.name.uppercased()
+    _ = currentLevelLabel.then {
       $0.font = UIFont(name: "VT323-Regular", size: 24)
       // Anchors
-      $0.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
+      $0.widthAnchor.constraint(equalToConstant: 20).isActive = true
+      $0.leadingAnchor.constraint(equalTo: background.leadingAnchor, constant: 20).isActive = true
+      $0.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
+    }
+    
+    _ = nameLabel.then {
+      $0.text = item.name.uppercased()
+      $0.textAlignment = .left
+      $0.numberOfLines = 2
+      $0.font = UIFont(name: "VT323-Regular", size: 24)
+      // Anchors
+      $0.leadingAnchor.constraint(equalTo: currentLevelLabel.trailingAnchor, constant: 10).isActive = true
+      $0.trailingAnchor.constraint(equalTo: valueLabel.leadingAnchor).isActive = true
       $0.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
     }
     
@@ -79,14 +90,15 @@ class ForSaleItemCell: UITableViewCell {
       $0.font = UIFont(name: "VT323-Regular", size: 14)
       // Anchors
       $0.centerYAnchor.constraint(equalTo: centerYAnchor, constant: -height(percentageOf: 0.1)).isActive = true
-      $0.leadingAnchor.constraint(equalTo: trailingAnchor, constant: -width(percentageOf: 0.3)).isActive = true
+      $0.leadingAnchor.constraint(equalTo: trailingAnchor, constant: -width(percentageOf: 0.25)).isActive = true
+      
     }
     
     _ = priceLabel.then {
       $0.font = UIFont(name: "VT323-Regular", size: 14)
       // Anchors
       $0.centerYAnchor.constraint(equalTo: centerYAnchor, constant: height(percentageOf: 0.1)).isActive = true
-      $0.leadingAnchor.constraint(equalTo: trailingAnchor, constant: -width(percentageOf: 0.3)).isActive = true
+      $0.leadingAnchor.constraint(equalTo: trailingAnchor, constant: -width(percentageOf: 0.25)).isActive = true
       $0.trailingAnchor.constraint(equalTo: trailingAnchor).isActive = true
     }
     
@@ -101,12 +113,7 @@ class ForSaleItemCell: UITableViewCell {
       $0.widthAnchor.constraint(equalTo: isCompleteImageView.heightAnchor).isActive = true
     }
     
-    _ = currentLevelLabel.then {
-      $0.font = UIFont(name: "VT323-Regular", size: 24)
-      // Anchors
-      $0.leadingAnchor.constraint(equalTo: background.leadingAnchor, constant: 20).isActive = true
-      $0.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
-    }
+  
     
     // MARK: - Observe
     
