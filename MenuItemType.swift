@@ -36,11 +36,11 @@ enum MenuItemType: String {
   func subTitle(for value: String) -> String {
     switch self {
     case .invest:
-      return "x\(value)"
+      return "+\(value)/s"
     case .recruits:
       return "+\(value)"
     case .gear:
-      return "+\(value)"
+      return "+\(value)/crush"
     default:
       return ""
     }

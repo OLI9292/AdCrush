@@ -87,7 +87,7 @@ class ForSaleItemCell: UITableViewCell {
     }
     
     _ = valueLabel.then {
-      $0.font = UIFont(name: "VT323-Regular", size: 14)
+      $0.font = UIFont(name: "VT323-Regular", size: 18)
       // Anchors
       $0.centerYAnchor.constraint(equalTo: centerYAnchor, constant: -height(percentageOf: 0.1)).isActive = true
       $0.leadingAnchor.constraint(equalTo: trailingAnchor, constant: -width(percentageOf: 0.25)).isActive = true
@@ -95,11 +95,11 @@ class ForSaleItemCell: UITableViewCell {
     }
     
     _ = priceLabel.then {
-      $0.font = UIFont(name: "VT323-Regular", size: 14)
+      $0.font = UIFont(name: "VT323-Regular", size: 18)
       // Anchors
       $0.centerYAnchor.constraint(equalTo: centerYAnchor, constant: height(percentageOf: 0.1)).isActive = true
       $0.leadingAnchor.constraint(equalTo: trailingAnchor, constant: -width(percentageOf: 0.25)).isActive = true
-      $0.trailingAnchor.constraint(equalTo: trailingAnchor).isActive = true
+      $0.leadingAnchor.constraint(equalTo: trailingAnchor, constant: -width(percentageOf: 0.25)).isActive = true
     }
     
     _ = isCompleteImageView.then {
@@ -107,10 +107,11 @@ class ForSaleItemCell: UITableViewCell {
       $0.tintColor = Palette.white.color
       $0.isHidden = true
       // Anchors
-      $0.centerXAnchor.constraint(equalTo: priceLabel.centerXAnchor).isActive = true
       $0.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
       $0.heightAnchor.constraint(equalToConstant: 40).isActive = true
       $0.widthAnchor.constraint(equalTo: isCompleteImageView.heightAnchor).isActive = true
+      $0.leadingAnchor.constraint(equalTo: trailingAnchor, constant: -width(percentageOf: 0.25)).isActive = true
+
     }
     
   
@@ -135,8 +136,16 @@ class ForSaleItemCell: UITableViewCell {
           self.valueLabel.text = ""
           self.isCompleteImageView.isHidden = false
         } else {
-          self.priceLabel.text = "Cost: \(self.price.clean)"
-          self.valueLabel.text = "Value: \(item.itemType.subTitle(for: self.value.clean))"
+          
+          let image = NSTextAttachment()
+          image.image = #imageLiteral(resourceName: "KARMA-FPO").withRenderingMode(.alwaysTemplate)
+          image.bounds = CGRect(x: 0, y: -5, width: 18, height: 18)
+          let imageString = NSAttributedString(attachment: image)
+          let priceText = NSMutableAttributedString(attributedString: imageString)
+          priceText.append(NSMutableAttributedString(string: "\(self.price.clean)"))
+          
+          self.priceLabel.attributedText = priceText
+          self.valueLabel.text = "\(item.itemType.subTitle(for: self.value.clean))"
         }
       })
       .addDisposableTo(bag)
