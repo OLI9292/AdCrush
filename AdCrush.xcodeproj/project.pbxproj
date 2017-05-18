@@ -36,6 +36,8 @@
 		B537E24A1EC5474300699FFD /* crumple3.aif in Resources */ = {isa = PBXBuildFile; fileRef = B537E2461EC5474300699FFD /* crumple3.aif */; };
 		B537E24B1EC5474300699FFD /* crumple2.aif in Resources */ = {isa = PBXBuildFile; fileRef = B537E2471EC5474300699FFD /* crumple2.aif */; };
 		B537E24C1EC5474300699FFD /* crumple1.aif in Resources */ = {isa = PBXBuildFile; fileRef = B537E2481EC5474300699FFD /* crumple1.aif */; };
+		B538359E1ECD35CC00A25222 /* LocationLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B538359D1ECD35CC00A25222 /* LocationLabel.swift */; };
+		B53835A01ECD35D600A25222 /* RecruitCounter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B538359F1ECD35D600A25222 /* RecruitCounter.swift */; };
 		B543639C1EC5056500B72B71 /* CrushAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = B543639B1EC5056500B72B71 /* CrushAnimation.swift */; };
 /* End PBXBuildFile section */
 
@@ -73,6 +75,8 @@
 		B537E2461EC5474300699FFD /* crumple3.aif */ = {isa = PBXFileReference; lastKnownFileType = file; path = crumple3.aif; sourceTree = "<group>"; };
 		B537E2471EC5474300699FFD /* crumple2.aif */ = {isa = PBXFileReference; lastKnownFileType = file; path = crumple2.aif; sourceTree = "<group>"; };
 		B537E2481EC5474300699FFD /* crumple1.aif */ = {isa = PBXFileReference; lastKnownFileType = file; path = crumple1.aif; sourceTree = "<group>"; };
+		B538359D1ECD35CC00A25222 /* LocationLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationLabel.swift; sourceTree = "<group>"; };
+		B538359F1ECD35D600A25222 /* RecruitCounter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecruitCounter.swift; sourceTree = "<group>"; };
 		B543639B1EC5056500B72B71 /* CrushAnimation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CrushAnimation.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -215,6 +219,8 @@
 				A7577FE71EBF8489001BAB44 /* KarmaCounter.swift */,
 				B524D3FA1EC4C07400251020 /* KPSCounter.swift */,
 				B543639B1EC5056500B72B71 /* CrushAnimation.swift */,
+				B538359D1ECD35CC00A25222 /* LocationLabel.swift */,
+				B538359F1ECD35D600A25222 /* RecruitCounter.swift */,
 			);
 			name = Nodes;
 			sourceTree = "<group>";
@@ -356,9 +362,11 @@
 				B53403D21EB8F6E0003AA4B3 /* Advertisement.swift in Sources */,
 				A78AA2E41EB7CB3E00D00A30 /* AppDelegate.swift in Sources */,
 				A700633B1EC01C2500678380 /* ForSaleItem.swift in Sources */,
+				B53835A01ECD35D600A25222 /* RecruitCounter.swift in Sources */,
 				A776BDAC1EBF98D80025ED65 /* User.swift in Sources */,
 				A700633D1EC01F3000678380 /* ForSaleItemCell.swift in Sources */,
 				B53403CF1EB8F434003AA4B3 /* Extensions.swift in Sources */,
+				B538359E1ECD35CC00A25222 /* LocationLabel.swift in Sources */,
 				B524D3FB1EC4C07400251020 /* KPSCounter.swift in Sources */,
 				A776BDB11EBFA85F0025ED65 /* BuyMenu.swift in Sources */,
 				A70063411EC0D5E400678380 /* RealmController.swift in Sources */,

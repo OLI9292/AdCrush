@@ -1,10 +1,10 @@
 PODS:
-  - Realm (2.5.1):
-    - Realm/Headers (= 2.5.1)
-  - Realm/Headers (2.5.1)
-  - RealmSwift (2.5.1):
-    - Realm (= 2.5.1)
-  - RxCocoa (3.4.0):
+  - Realm (2.7.0):
+    - Realm/Headers (= 2.7.0)
+  - Realm/Headers (2.7.0)
+  - RealmSwift (2.7.0):
+    - Realm (= 2.7.0)
+  - RxCocoa (3.4.1):
     - RxSwift (~> 3.4)
   - RxGesture (1.0.1):
     - RxCocoa (~> 3.4)
@@ -12,7 +12,7 @@ PODS:
   - RxRealm (0.6.0):
     - RealmSwift (~> 2.5)
     - RxSwift (~> 3.2)
-  - RxSwift (3.4.0)
+  - RxSwift (3.4.1)
   - Then (2.1.0)
 
 DEPENDENCIES:
@@ -24,12 +24,12 @@ DEPENDENCIES:
   - Then
 
 SPEC CHECKSUMS:
-  Realm: 32f86104d37c8521f864d4274050b38ba6190733
-  RealmSwift: f719e7511c902b8908593e8f143f59e47931bdb6
-  RxCocoa: d14ef6b6029e1ddc6e966508c09289090de68ff9
+  Realm: 07e5d3a9e0e41d65fd5f9f05150ed6295d0f093b
+  RealmSwift: 6d06425d3900c86473c4f323bf6949b43fca22bc
+  RxCocoa: a8a5f1d061d0043e28f56976829f31ce63e8eb09
   RxGesture: 1f770b247c69e8133fb8f4ef263571efd0ae91a1
   RxRealm: 323de579b50b5e0f4a3e087d5925021f976ffaf1
-  RxSwift: 3789a1af753002a14edecdb698a2424624296a9c
+  RxSwift: 656f8fbeca5bc372121a72d9ebdd3cd3bc0ffade
   Then: 8496793c8fcac95482b943909b440724c7d8d82c
 
 PODFILE CHECKSUM: aed2915271bf512bcac6cb2a443266dcc8f6a8c3

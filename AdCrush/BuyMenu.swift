@@ -4,6 +4,7 @@
 
 import Then
 import RxSwift
+import RxGesture
 import RealmSwift
 import UIKit
 
@@ -13,6 +14,7 @@ class BuyMenu: UIView, UITableViewDelegate, UITableViewDataSource {
   
   let itemsTableView = UITableView()
   let subtitleLabel = UILabel()
+  let closeButton = UIButton()
   
   var menuItemType: MenuItemType
   let items: [ForSaleItem]
@@ -22,11 +24,10 @@ class BuyMenu: UIView, UITableViewDelegate, UITableViewDataSource {
     self.items = GameController.shared.forSaleItems(for: menuItemType)
     super.init(frame: frame)
     
-    layout()
   }
   
-  func layout() {
-    
+  override func layoutSubviews() {
+  
     backgroundColor = Palette.lightGrey.color
     
     // Title
@@ -71,21 +72,50 @@ class BuyMenu: UIView, UITableViewDelegate, UITableViewDataSource {
       $0.widthAnchor.constraint(equalTo: widthAnchor).isActive = true
       $0.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
       $0.topAnchor.constraint(equalTo: subtitleLabel.bottomAnchor, constant: 20).isActive = true
-      $0.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
+      $0.bottomAnchor.constraint(equalTo: bottomAnchor, constant: closeButton.frame.height).isActive = true
+    }
+    
+    // Close Button
+    _ = closeButton.then {
+      $0.backgroundColor = Palette.darkGrey.color
+      let title = NSAttributedString(string: "CLOSE", attributes: [NSFontAttributeName: UIFont(name: "VT323-Regular", size: 28)!])
+      $0.setAttributedTitle(title, for: .normal)
+      $0.isUserInteractionEnabled = true
+      // Tap Gesture Observer
+      observeForTap($0)
+      addSubview($0)
+      // Constraints
+      $0.freeConstraints()
+      $0.widthAnchor.constraint(equalTo: widthAnchor).isActive = true
+      $0.heightAnchor.constraint(equalToConstant: 40).isActive = true
+      $0.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
+      $0.bottomAnchor.constraint(equalTo: bottomAnchor, constant: 0).isActive = true
     }
   }
-/*
-  private func subtitle(for menuType: MenuItemType) -> String {
-    switch menuType {
-    case .industry:
-      return "CURRENT VALUE PER CRUSH: \(RealmController.user.valuePerCrush.noDecimals)"
-    case .medium:
-      return "CURRENT MULTIPLIER PER CRUSH: \(RealmController.user.multiplierPerCrush.noDecimals)x"
-    case .investment:
-      return "CURRENT KARMA PER SECOND: \(RealmController.user.karmaPerSecond.noDecimals)"
-    }
+  
+  private func observeForTap(_ view: UIButton) {
+    view.rx
+      .anyGesture(.tap())
+      .when(.recognized)
+      .subscribe(onNext: { _ in
+        self.removeFromSuperview()
+      })
+      .addDisposableTo(bag)
   }
-*/
+
+  
+  /*
+   private func subtitle(for menuType: MenuItemType) -> String {
+   switch menuType {
+   case .industry:
+   return "CURRENT VALUE PER CRUSH: \(RealmController.user.valuePerCrush.noDecimals)"
+   case .medium:
+   return "CURRENT MULTIPLIER PER CRUSH: \(RealmController.user.multiplierPerCrush.noDecimals)x"
+   case .investment:
+   return "CURRENT KARMA PER SECOND: \(RealmController.user.karmaPerSecond.noDecimals)"
+   }
+   }
+   */
   required init?(coder aDecoder: NSCoder) {
     fatalError("init(coder:) has not been implemented")
   }
@@ -107,6 +137,6 @@ extension BuyMenu {
   }
   
   func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-    return 80
+    return 100
   }
 }
