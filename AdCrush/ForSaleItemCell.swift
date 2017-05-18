@@ -91,7 +91,7 @@ class ForSaleItemCell: UITableViewCell {
     }
     
     _ = isCompleteImageView.then {
-      $0.image = #imageLiteral(resourceName: "sun").withRenderingMode(.alwaysTemplate)
+      $0.image = #imageLiteral(resourceName: "KARMA-FPO").withRenderingMode(.alwaysTemplate)
       $0.tintColor = Palette.white.color
       $0.isHidden = true
       // Anchors

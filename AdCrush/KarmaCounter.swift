@@ -79,7 +79,7 @@ class KarmaCounter: SKSpriteNode, GameElement {
     let background = whiteBackgroundNode(at: 0, size: backgroundSize)
     addChild(background)
     
-    let karmaImage = SKSpriteNode(imageNamed: "sun")
+    let karmaImage = SKSpriteNode(imageNamed: "KARMA-FPO")
     karmaImage.size = CGSize(width: 30, height: 30)
     karmaImage.alpha = 0.7
     karmaImage.position = CGPoint(x: 0, y: 0)

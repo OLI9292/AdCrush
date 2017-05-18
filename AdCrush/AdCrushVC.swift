@@ -96,10 +96,10 @@ class AdCrushVC: UIViewController {
         height: height(percentageOf: 0.1))
     case .buyMenu:
       return CGRect(
-        x: width(percentageOf: 0.1),
+        x: width(percentageOf: 0.05),
         y: height(percentageOf: 0.15),
-        width: width(percentageOf: 0.8),
-        height: height(percentageOf: 0.7))
+        width: width(percentageOf: 0.9),
+        height: height(percentageOf: 0.75))
     }
   }
 }
